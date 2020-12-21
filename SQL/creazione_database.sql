@@ -4,6 +4,11 @@ drop table corsi cascade constraints;
 drop table corsisti cascade constraints;
 drop table corsi_corsisti cascade constraints;
 
+drop sequence admin_seq
+drop sequence docenti_seq
+drop sequence corsi_seq
+drop sequence corsisti_seq
+
 create table admin (
 	id_admin int,
 	nome_admin varchar2(30),
