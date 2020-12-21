@@ -16,6 +16,14 @@
 			<h3>Pagina non trovata</h3>
 		</div>
 
+<div class="container">
+<div class="col-sm-4">
+<img src="./img/404.png" class="cactus">
+</div>
+</div>
+
+
+
 		<div class="panel panel-danger">
 			<div class="panel-heading">
 				<p>Impossibile ottenere risorsa richiesta</p>
