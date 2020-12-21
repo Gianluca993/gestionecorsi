@@ -20,7 +20,7 @@ create table docenti (
 	id_docente int,
 	nome_docente varchar2(30),
 	cognome_docente varchar2(30),
-	cv_docente varchar(200),
+	cv_docente varchar(100),
 	constraint p_iddocente primary key (id_docente)
 );
 
