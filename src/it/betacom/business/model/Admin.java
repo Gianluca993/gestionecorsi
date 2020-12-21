@@ -2,8 +2,8 @@ package it.betacom.business.model;
 
 public class Admin {
 	private long idAdmin;
-	private String nome;
-	private String cognome;
+	private String nomeAdmin;
+	private String cognomeAdmin;
 	
 	public long getIdAdmin() {
 		return idAdmin;
@@ -11,23 +11,23 @@ public class Admin {
 	public void setIdAdmin(long idAdmin) {
 		this.idAdmin = idAdmin;
 	}
-	public String getNome() {
-		return nome;
+	public String getNomeAdmin() {
+		return nomeAdmin;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNomeAdmin(String nomeAdmin) {
+		this.nomeAdmin = nomeAdmin;
 	}
-	public String getCognome() {
-		return cognome;
+	public String getCognomeAdmin() {
+		return cognomeAdmin;
 	}
-	public void setCognome(String cognome) {
-		this.cognome = cognome;
+	public void setCognomeAdmin(String cognomeAdmin) {
+		this.cognomeAdmin = cognomeAdmin;
 	}
-	
 	@Override
 	public String toString() {
-		return "Admin [idAdmin=" + idAdmin + ", nome=" + nome + ", cognome=" + cognome + "]";
+		return "Admin [idAdmin=" + idAdmin + ", nomeAdmin=" + nomeAdmin + ", cognomeAdmin=" + cognomeAdmin + "]";
 	}
+	
 	
 	
 }
