@@ -69,6 +69,7 @@ public class CorsistaDAO implements GenericDAO<Corsista>{
 			c.setIdCorsista(id);
 			c.setNomeCorsista(rs.getString(2));
 			c.setCognomeCorsista(rs.getString(3));
+			c.setPrecFormativi(rs.getInt(4) == 1);
 		}
 		return c;
 	}
@@ -88,6 +89,7 @@ public class CorsistaDAO implements GenericDAO<Corsista>{
 			c.setIdCorsista(rs.getLong(1));
 			c.setNomeCorsista(rs.getString(2));
 			c.setCognomeCorsista(rs.getString(3));
+			c.setPrecFormativi(rs.getInt(4) == 1);
 			cor[i] = c;
 		}
 		return cor;
