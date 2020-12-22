@@ -8,16 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.websocket.server.PathParam;
 
 import it.betacom.business.AdminFacade;
 
+<<<<<<< HEAD
 @WebServlet("/eliminacorsista/{id}")
+=======
+/**
+ * Servlet implementation class AggiungiCorsista
+ */
+@WebServlet("/eliminacorsista")
+>>>>>>> 500ea74cef25565b3279d5bb53822b2c7f4798a2
 public class EliminaCorsista extends HttpServlet {
 	private static final long serialVersionUID = -1732386572633584297L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response, @PathParam(value="id") String ids) throws ServletException, IOException {
-		long id = Long.parseLong(ids);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		long id = Long.parseLong(request.getParameter("id"));
 		try {
 			AdminFacade.getInstance().deleteCorsista(id);
 		} catch (ClassNotFoundException | SQLException | IOException e) {
