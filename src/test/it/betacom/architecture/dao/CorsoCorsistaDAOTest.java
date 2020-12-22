@@ -56,8 +56,11 @@ class CorsoCorsistaDAOTest {
 		Statement stmt = conn.createStatement();
 		stmt.execute("delete corsi_corsisti where id_corso = " + corso.getIdCorso());
 		stmt.close();
+		System.out.println("delete corsi_corsisti");
 		CorsistaDAO.getFactory().delete(conn, corsista.getIdCorsista());
+		System.out.println("delete corsisti");
 		CorsoDAO.getFactory().delete(conn, corso.getIdCorso());
+		System.out.println("delete corso");
 		DBAccess.closeConnection();
 		corso = null;
 		corsista = null;
