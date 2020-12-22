@@ -20,7 +20,7 @@ public class CorsoIdGenerator implements GeneralIdGenerator{
 		conn = DBAccess.getConnection();
 	}
 	
-	public CorsoIdGenerator getInstance() throws ClassNotFoundException, SQLException, IOException {
+	public static CorsoIdGenerator getInstance() throws ClassNotFoundException, SQLException, IOException {
 		if(idGenerator == null) {
 			idGenerator = new CorsoIdGenerator();
 		}
