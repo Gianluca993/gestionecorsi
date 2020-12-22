@@ -47,4 +47,11 @@ public interface DAOConstants {
 	
 	//LOGIN
 	String GET_ADMINID="select admin_id from admin where cognome = ?";	
+	
+	//SEQ GEN
+	
+	String DOC_NEXTVAL="select docenti_seq.nextval from dual";
+	String ADMIN_NEXTVAL="select admin_seq.nextval from dual";
+	String CORSI_NEXTVAL="select corsi_seq.nextval from dual";
+	String CORSISTI_NEXTVAL="select corsisti_seq.nextval from dual";
 }
