@@ -53,7 +53,7 @@ public class CorsistaDAO implements GenericDAO<Corsista>{
 	public void delete(Connection conn, long id) throws SQLException {
 		PreparedStatement ps;
 		ps = conn.prepareStatement(DEL_CORSISTA);
-		ps.setLong(3, id);
+		ps.setLong(1, id);
 		ps.execute();
 	}
 

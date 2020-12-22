@@ -34,7 +34,7 @@ class CorsistaDAOTest {
 		corsista2.setIdCorsista(idGenerator.nextId());
 		corsista2.setNomeCorsista("Paolo");
 		corsista2.setCognomeCorsista("Rossi");
-		corsista2.setPrecFormativi(false);
+		corsista2.setPrecFormativi(true);
 		System.out.println("CORSISTA 2 PER IL TEST: " + corsista2.toString());
 	}
 
@@ -83,7 +83,13 @@ class CorsistaDAOTest {
 	
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
-		System.out.printf("\nTest delete()");
+		System.out.printf("\nTest delete()\n");
+		CorsistaDAO corsistaDAO = CorsistaDAO.getFactory();
+		corsistaDAO.delete(conn, corsista1.getIdCorsista());
+		System.out.println("Corsista 1 eliminato");
+		
+		corsistaDAO.delete(conn, corsista2.getIdCorsista());
+		System.out.println("Corsista 2 eliminato");
 		conn.close();
 	}
 
