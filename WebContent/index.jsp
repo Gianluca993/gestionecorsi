@@ -29,7 +29,7 @@
     <input type="text" class="form-control" id="cogadmin" placeholder="Enter Cognome" required>
   </div>
  
-  <a href="#"><button type="submit" class="btn btn-primary">Entra</button></a>
+ <button type="submit" class="btn btn-primary">Entra</button>
 </form>
 
 </div>

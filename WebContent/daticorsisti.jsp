@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<jsp:useBean id="carrello"
+	class="it.betacom.business.controller.Login" scope="session" />
 <link rel="stylesheet" href="css/style.css">
 <%@include file="CDN.html"%>
 <title>Dati Corsisti</title>
