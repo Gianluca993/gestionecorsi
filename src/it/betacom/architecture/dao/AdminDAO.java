@@ -18,7 +18,7 @@ public class AdminDAO extends AdapterAdminDAO {
 	public Admin getById(Connection conn, long id) throws SQLException {
 		Admin admin = null;
 		PreparedStatement ps;
-		ps = conn.prepareStatement("select * from admin where id_admin = ?");
+		ps = conn.prepareStatement(ADMIN);
 		ps.setLong(1, id);
 		ResultSet rs = ps.executeQuery();
 		if(rs.next()) {

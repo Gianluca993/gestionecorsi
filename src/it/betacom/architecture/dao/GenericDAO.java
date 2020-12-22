@@ -3,7 +3,7 @@ package it.betacom.architecture.dao;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public interface GenericDAO<T> {
+public interface GenericDAO<T> extends DAOConstants {
 	void create(Connection conn, T entity) throws SQLException;
 	void update(Connection conn, T entity) throws SQLException;
 	void delete(Connection conn, long id) throws SQLException;

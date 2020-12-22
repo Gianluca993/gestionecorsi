@@ -31,7 +31,7 @@ public class CorsoIdGenerator implements GeneralIdGenerator{
 		long id = 0;
 		stmt = conn.createStatement();
 		//TODO query
-		rs = stmt.executeQuery("");
+		rs = stmt.executeQuery(CORSI_NEXTVAL);
 		rs.next();
 		id = rs.getLong(1);
 		return id;

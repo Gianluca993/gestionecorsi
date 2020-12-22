@@ -24,7 +24,7 @@ public class CorsistaIdGenerator implements GeneralIdGenerator {
 		long id = 0;
 		stmt = conn.createStatement();
 		//TODO query
-		rs = stmt.executeQuery("");
+		rs = stmt.executeQuery(CORSISTI_NEXTVAL);
 		rs.next();
 		id = rs.getLong(1);
 		return id;

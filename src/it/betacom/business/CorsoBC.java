@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import it.betacom.architecture.dao.CorsoDAO;
 import it.betacom.architecture.dao.DBAccess;
 import it.betacom.business.idgenerator.CorsoIdGenerator;
 import it.betacom.business.model.Corso;
@@ -25,8 +26,8 @@ public class CorsoBC {
 		return null;
 	}
 	
-	public void create(Corso c) {
-		
+	public void create(Corso c) throws SQLException {
+		CorsoDAO.getFactory().create(conn, c);
 	}
 	
 	public void update(Corso c) {

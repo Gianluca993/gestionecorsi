@@ -22,7 +22,7 @@ public class DocenteDAO extends AdapterDocenteDAO{
 	public Docente getById(Connection conn, long id) throws SQLException {
 		Docente docente = null;
 		PreparedStatement ps;
-		ps = conn.prepareStatement("select * from docenti where id_docente = ?");
+		ps = conn.prepareStatement(DOCENTE_GETALL);
 		ps.setLong(1, id);
 		ResultSet rs = ps.executeQuery();
 		if(rs.next()) {
