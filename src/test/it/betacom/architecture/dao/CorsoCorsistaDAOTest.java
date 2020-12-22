@@ -54,9 +54,6 @@ class CorsoCorsistaDAOTest {
 		stmt.close();
 		CorsistaDAO.getFactory().delete(conn, corsista.getIdCorsista());
 		CorsoDAO.getFactory().delete(conn, corso.getIdCorso());
-		stmt = conn.createStatement();
-		stmt.execute("delete docenti where docente_id = " + corso.getIdCorso());
-		stmt.close();
 		DBAccess.closeConnection();
 		corso = null;
 		corsista = null;
@@ -65,8 +62,6 @@ class CorsoCorsistaDAOTest {
 	@Test
 	void testCreateCorsoCorsista() {
 		try {
-			//TODO create docente
-			System.out.println("Creato Docente");
 			CorsoDAO.getFactory().create(conn, corso);
 			System.out.println("Creato Corso");
 			CorsistaDAO.getFactory().create(conn, corsista);
