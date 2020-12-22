@@ -39,6 +39,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants{
 		rowSet.insertRow();
 		rowSet.moveToCurrentRow();
 		rowSet.acceptChanges();
+		
 	}
 
 	@Override
