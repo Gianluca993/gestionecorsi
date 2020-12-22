@@ -49,7 +49,7 @@ public interface DAOConstants {
 	String UPD_CORSO="update corsi set nome_corso=?, data_inizio=?, data_fine=?, costo=?, commenti_corso=?, aula_corso=?, id_docente=? where id_corso=?";
 	
 	//LOGIN
-	String GET_ADMINID="select admin_id from admin where cognome = ?";	
+	String GET_ADMINID="select id_admin from admin where cognome_admin = ?";	
 	
 	//SEQ GEN
 	

@@ -27,7 +27,8 @@ public class Login extends HttpServlet {
 				if(adminId != null && adminId.equals(id)) {
 					session.setAttribute("cognome", cognome);
 					response.sendRedirect("daticorsisti.jsp");
-					//TODO redirect
+				} else {
+					response.sendRedirect("index.jsp");
 				}
 			} catch (ClassNotFoundException | SQLException | IOException e) {
 				e.printStackTrace();

@@ -20,13 +20,13 @@
 			class="form-horizontal" method="post" id="adminForm">
   <div class="form-group">
     <label for="id_admin">Id Admin</label>
-    <input type="text" class="form-control" id="adaccess" placeholder="Enter Id" required>
+    <input type="text" class="form-control" id="adaccess" name="id" placeholder="Enter Id" required>
   </div>
  
  
    <div class="form-group">
     <label for="cognome_admin">Cognome Admin</label>
-    <input type="text" class="form-control" id="cogadmin" placeholder="Enter Cognome" required>
+    <input type="text" class="form-control" id="cogadmin" name="cognome" placeholder="Enter Cognome" required>
   </div>
  
  <button type="submit" class="btn btn-primary">Entra</button>
