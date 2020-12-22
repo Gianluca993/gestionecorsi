@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import it.betacom.architecture.dao.CorsoCorsistaDAO;
 import it.betacom.architecture.dao.DBAccess;
 import it.betacom.business.model.CorsoCorsista;
 
@@ -16,23 +17,20 @@ public class CorsoCorsistaBC {
 		conn = DBAccess.getConnection();
 	}
 	
-	public CorsoCorsista getById(long id) {
-		return null;
+	public CorsoCorsista[] getByCorsoId(long id) throws SQLException {
+		return CorsoCorsistaDAO.getFactory().getByCorsoId(conn, id);
 	}
 	
-	public CorsoCorsista[] getAll() {
-		return null;
+	public CorsoCorsista[] getByCorsistaId(long id) throws SQLException {
+		return CorsoCorsistaDAO.getFactory().getByCorsistaId(conn, id);
 	}
 	
-	public void create(CorsoCorsista c) {
-		
+	public CorsoCorsista[] getAll() throws SQLException {
+		return CorsoCorsistaDAO.getFactory().getAll(conn);
 	}
 	
-	public void update(CorsoCorsista c) {
-		
+	public void create(CorsoCorsista c) throws SQLException {
+		CorsoCorsistaDAO.getFactory().create(conn, c);
 	}
 	
-	public void delete(long id) {
-		
-	}
 }

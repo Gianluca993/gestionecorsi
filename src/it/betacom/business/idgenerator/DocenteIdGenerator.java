@@ -24,7 +24,6 @@ public class DocenteIdGenerator implements GeneralIdGenerator, DAOConstants {
 	public long nextId() throws ClassNotFoundException, IOException, SQLException {
 		long id = 0;
 		stmt = conn.createStatement();
-		//TODO query
 		rs = stmt.executeQuery(DOC_NEXTVAL);
 		rs.next();
 		id = rs.getLong(1);
