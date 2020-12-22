@@ -9,7 +9,6 @@ import it.betacom.architecture.dao.DBAccess;
 public class DocenteBC {
 
 	private Connection conn;
-	//TODO id generator
 	
 	public DocenteBC() throws SQLException, ClassNotFoundException, IOException {
 		conn = DBAccess.getConnection();

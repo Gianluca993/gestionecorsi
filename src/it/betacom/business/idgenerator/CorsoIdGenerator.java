@@ -19,6 +19,13 @@ public class CorsoIdGenerator implements GeneralIdGenerator{
 		conn = DBAccess.getConnection();
 	}
 	
+	public CorsoIdGenerator getInstance() throws ClassNotFoundException, SQLException, IOException {
+		if(idGenerator == null) {
+			idGenerator = new CorsoIdGenerator();
+		}
+		return idGenerator;
+	}
+	
 	@Override
 	public long nextId() throws ClassNotFoundException, IOException, SQLException {
 		long id = 0;
