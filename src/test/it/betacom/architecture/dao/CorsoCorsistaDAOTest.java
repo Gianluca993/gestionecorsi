@@ -27,10 +27,6 @@ class CorsoCorsistaDAOTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		docente = new Docente();
-		docente.setNomeDocente("test");
-		docente.setCognomeDocente("test");
-		docente.setCvDocente("/test");
 		
 		corso = new Corso();
 		corso.setNomeCorso("Java");
