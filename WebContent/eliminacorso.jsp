@@ -21,19 +21,25 @@
     <tr>
       <th scope="col">Id Corso</th>
       <th scope="col">Nome Corso</th>
-      <th scope="col">Docente Corso</th>
-      <th scope="col">Num Iscritti</th>
+      <th scope="col">Inizio Corso</th>
+      <th scope="col">Fine Corso</th>
+      <th scope="col">Costo Corso</th>
+      <th scope="col">Commenti Corso</th>
+      <th scope="col">Aula Corso</th>
       <th scope="col">Elimina</th>
     </tr>
   </thead>
   <tbody>
    
     <tr>
-      <th scope="row">3</th>
+      <td scope="row"></td>
       <td></td>
       <td></td>
       <td></td>
-      <td><button type="submit" class=" btn btn-danger"> Elimina Corso</button>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><button type="submit" class=" btn btn-danger"> Elimina Corso</button></td>
     </tr>
   </tbody>
 </table>

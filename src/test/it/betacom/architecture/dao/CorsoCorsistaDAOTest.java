@@ -27,7 +27,7 @@ class CorsoCorsistaDAOTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		
+		conn = DBAccess.getConnection();
 		corso = new Corso();
 		corso.setNomeCorso("Java");
 		corso.setDataInizio(new Date());

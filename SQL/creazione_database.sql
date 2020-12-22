@@ -49,8 +49,8 @@ create table corsisti (
 create table corsi_corsisti (
 	id_corso int,
 	id_corsista int,
-	constraint f_idcorso foreign key (id_corso) references corsi(id_corso),
-	constraint f_idcors foreign key (id_corsista) references corsisti(id_corsista)
+	constraint f_idcorso foreign key (id_corso) references corsi(id_corso) on delete cascade,
+	constraint f_idcors foreign key (id_corsista) references corsisti(id_corsista) on delete cascade
 );
 
 create sequence admin_seq;
