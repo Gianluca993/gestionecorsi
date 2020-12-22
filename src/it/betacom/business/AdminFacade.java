@@ -43,7 +43,7 @@ public class AdminFacade {
 	public Corsista[] getAllCorsisti() throws SQLException {
 		return corsistaBC.getAll();
 	}
-	public void createCorsista(Corsista c) throws SQLException {
+	public void createCorsista(Corsista c) throws SQLException, ClassNotFoundException, IOException {
 		corsistaBC.create(c);
 	}
 	public void updateCorsista(Corsista c) throws SQLException {

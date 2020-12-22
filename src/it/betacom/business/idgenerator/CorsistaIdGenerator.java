@@ -22,7 +22,7 @@ public class CorsistaIdGenerator implements GeneralIdGenerator{
 	}
 
 	@Override
-	public long nextId() throws ClassNotFoundException, IOException, SQLException {
+	public long nextId() throws SQLException {
 		long id = 0;
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery(CORSISTI_NEXTVAL);
@@ -31,7 +31,7 @@ public class CorsistaIdGenerator implements GeneralIdGenerator{
 		return id;
 	}
 
-	public static CorsistaIdGenerator getInstance() throws ClassNotFoundException, SQLException, IOException {
+	public static CorsistaIdGenerator getInstance() throws SQLException, ClassNotFoundException, IOException{
 		if(idGenerator == null) {
 			idGenerator = new CorsistaIdGenerator();
 		}

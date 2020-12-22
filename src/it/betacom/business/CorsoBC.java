@@ -26,8 +26,14 @@ public class CorsoBC {
 		return CorsoDAO.getFactory().getAll(conn);
 	}
 
-	public void create(Corso c) throws SQLException {
-		CorsoDAO.getFactory().create(conn, c);
+	public void create(Corso c) throws SQLException, ClassNotFoundException, IOException {
+		if(c.getIdCorso() > 0) {
+			update(c);
+		} else {
+			idGen = CorsoIdGenerator.getInstance();
+			c.setIdCorso(idGen.nextId());
+			CorsoDAO.getFactory().create(conn, c);
+		}
 	}
 
 	public void update(Corso c) throws SQLException {

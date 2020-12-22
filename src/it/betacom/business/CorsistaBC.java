@@ -25,8 +25,14 @@ public class CorsistaBC {
 		return CorsistaDAO.getFactory().getAll(conn);
 	}
 	
-	public void create(Corsista c) throws SQLException {
-		CorsistaDAO.getFactory().create(conn, c);
+	public void create(Corsista c) throws SQLException, ClassNotFoundException, IOException {
+		if(c.getIdCorsista() > 0) {
+			update(c);
+		} else {
+			idGen = CorsistaIdGenerator.getInstance();
+			c.setIdCorsista(idGen.nextId());
+			CorsistaDAO.getFactory().create(conn, c);							
+		}			
 	}
 	
 	public void update(Corsista c) throws SQLException {

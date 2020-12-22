@@ -17,27 +17,28 @@
 <div class="container-fluid align-context-center">
 <h1>Inserisci corsista</h1>
 <div class=col-md-4>
-<form action="/<%=application.getServletContextName()%>/create"
+<form action="/<%=application.getServletContextName()%>/aggiungicorsista"
 			class="form-horizontal" method="post" id="corsistaForm">
   <div class="form-group">
     <label for="nome_corsista">Nome Corsista</label>
-    <input type="text" class="form-control" id="Nomecorsista" placeholder="Nome.." required>
+    <input type="text" class="form-control" id="Nomecorsista" name="nome" placeholder="Nome.." required>
   </div>
  
  
    <div class="form-group">
     <label for="cognomeCorsista">Cognome Corsista</label>
-    <input type="text" class="form-control" id="cognomeCorsista" placeholder="Cognome" required>
+    <input type="text" class="form-control" id="cognomeCorsista" name="cognome" placeholder="Cognome" required>
   </div>
  
  
  <div class="form-group">
     <label for="precformativi">Precedenti formativi</label>
-    <input type="checkbox" class="form-control" id="precformativi"required>
+    <input type="checkbox" class="form-control" name ="prec" id="precformativi" value="1">
   </div>
+  
   <div class="form-group">
     <label for="corso_corsista">Precedenti formativi</label>
-    <input type="checkbox" class="form-control" id="corso_corsista"required>
+    <input type="checkbox" class="form-control" id="corso_corsista">
   </div>
  
  
