@@ -71,6 +71,7 @@ class CorsoCorsistaDAOTest {
 			System.out.println("Creato Corso-Corsista");
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			fail("create fallito");
 		}
 	}

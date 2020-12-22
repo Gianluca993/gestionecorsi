@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import it.betacom.architecture.dao.CorsistaDAO;
 import it.betacom.architecture.dao.DBAccess;
 import it.betacom.business.idgenerator.CorsistaIdGenerator;
 import it.betacom.business.model.Corsista;
@@ -16,12 +17,12 @@ public class CorsistaBC {
 		conn = DBAccess.getConnection();
 	}
 	
-	public Corsista getById(long id) {
-		return null;
+	public Corsista getById(long id) throws SQLException {
+		return CorsistaDAO.getFactory().getById(conn, id);
 	}
 	
 	public Corsista[] getAll() {
-		return null;
+		return CorsistaDAO.getFactory().getAll(conn);
 	}
 	
 	public void create(Corsista c) {
