@@ -1,24 +1,27 @@
 package test.it.betacom.architecture.dao;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import it.betacom.architecture.dao.DBAccess;
+import it.betacom.architecture.dao.DocenteDAO;
+import it.betacom.business.model.Docente;
 
 class DocenteDAOTest {
 
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-	}
 
-	@AfterAll
-	static void tearDownAfterClass() throws Exception {
-	}
+	Connection conn;
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void testGetById() throws SQLException, ClassNotFoundException, IOException {
+		DocenteDAO docenteDAO = DocenteDAO.getFactory();
+		conn = DBAccess.getConnection();
+		Docente docente = docenteDAO.getById(conn, 1);
+		System.out.println(docente.toString());
+
 	}
 
 }
