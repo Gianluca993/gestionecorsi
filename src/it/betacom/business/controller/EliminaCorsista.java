@@ -11,10 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.betacom.business.AdminFacade;
 
+<<<<<<< HEAD
+@WebServlet("/eliminacorsista/{id}")
+=======
 /**
  * Servlet implementation class AggiungiCorsista
  */
 @WebServlet("/eliminacorsista")
+>>>>>>> 500ea74cef25565b3279d5bb53822b2c7f4798a2
 public class EliminaCorsista extends HttpServlet {
 	private static final long serialVersionUID = -1732386572633584297L;
 
