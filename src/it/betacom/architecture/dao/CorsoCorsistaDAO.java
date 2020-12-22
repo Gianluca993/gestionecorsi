@@ -1,9 +1,11 @@
 package it.betacom.architecture.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
@@ -56,37 +58,35 @@ public class CorsoCorsistaDAO extends AdapterCorsoCorsistaDAO {
 	
 	public CorsoCorsista[] getByCorsoId(Connection conn, long corsoId) throws SQLException {
 		CorsoCorsista[] cor = null;
-		Statement stmt = conn.createStatement(
-				ResultSet.TYPE_SCROLL_INSENSITIVE,
-				ResultSet.CONCUR_READ_ONLY);
-		ResultSet rs = stmt.executeQuery(CORSICORSISTI_CORSOID);
-		rs.last();
-		cor = new CorsoCorsista[rs.getRow()];
-		rs.beforeFirst();
-		for(int i = 0; rs.next(); i++) {
-			CorsoCorsista c = new CorsoCorsista();
-			c.setIdCorso(rs.getLong(1));
-			c.setIdCorsista(rs.getLong(2));
-			cor[i] = c;
+		ArrayList<CorsoCorsista> list =  new ArrayList<CorsoCorsista>();
+		PreparedStatement ps = conn.prepareStatement(CORSICORSISTI_CORSOID);
+		ps.setLong(1, corsoId);
+		ResultSet rs = ps.executeQuery();
+		while(rs.next()) {
+			CorsoCorsista cc = new CorsoCorsista();
+			cc.setIdCorso(rs.getLong(1));
+			cc.setIdCorsista(rs.getLong(2));
+			list.add(cc);
 		}
+		cor = new CorsoCorsista[list.size()];
+		list.toArray(cor);
 		return cor;
 	}
 	
-	public CorsoCorsista[] getByCorsistaId(Connection conn, long corsoId) throws SQLException {
+	public CorsoCorsista[] getByCorsistaId(Connection conn, long corsistaId) throws SQLException {
 		CorsoCorsista[] cor = null;
-		Statement stmt = conn.createStatement(
-				ResultSet.TYPE_SCROLL_INSENSITIVE,
-				ResultSet.CONCUR_READ_ONLY);
-		ResultSet rs = stmt.executeQuery(CORSICORSISTI_CORSISTAID);
-		rs.last();
-		cor = new CorsoCorsista[rs.getRow()];
-		rs.beforeFirst();
-		for(int i = 0; rs.next(); i++) {
-			CorsoCorsista c = new CorsoCorsista();
-			c.setIdCorso(rs.getLong(1));
-			c.setIdCorsista(rs.getLong(2));
-			cor[i] = c;
+		ArrayList<CorsoCorsista> list =  new ArrayList<CorsoCorsista>();
+		PreparedStatement ps = conn.prepareStatement(CORSICORSISTI_CORSISTAID);
+		ps.setLong(1, corsistaId);
+		ResultSet rs = ps.executeQuery();
+		while(rs.next()) {
+			CorsoCorsista cc = new CorsoCorsista();
+			cc.setIdCorso(rs.getLong(1));
+			cc.setIdCorsista(rs.getLong(2));
+			list.add(cc);
 		}
+		cor = new CorsoCorsista[list.size()];
+		list.toArray(cor);
 		return cor;
 	}
 }
