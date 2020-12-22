@@ -35,7 +35,5 @@ public class AdminDAO extends AdapterAdminDAO {
 		
 		return admin;
 	}
-	
-	
 
 }
