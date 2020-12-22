@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import it.betacom.business.util.CheckLogin;
 
-@WebServlet("/login")
+@WebServlet("/logout")
 public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 3570454550821941657L;
 
