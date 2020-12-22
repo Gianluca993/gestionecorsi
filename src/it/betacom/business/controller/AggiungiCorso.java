@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import it.betacom.business.AdminFacade;
 import it.betacom.business.model.Corso;
 
-@WebServlet("/aggiungiCorso")
+@WebServlet("/aggiungicorso")
 public class AggiungiCorso extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import it.betacom.business.AdminFacade;
 import it.betacom.business.model.Corso;
 
-@WebServlet("/modificaCorso")
+@WebServlet("/modificacorso")
 public class ModificaCorso extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
