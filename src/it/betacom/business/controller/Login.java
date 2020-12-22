@@ -19,12 +19,12 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String cognome = request.getParameter("cognome");
-		String id = request.getParameter("id");
-		String adminId = null;
-		if (cognome != null && id != null) {
+		long id = Long.parseLong(request.getParameter("id"));
+		long adminId = 0;
+		if (cognome != null && id > 0) {
 			try {
 				adminId = CheckLogin.getFactory().getAdminId(cognome);
-				if(adminId != null && adminId.equals(id)) {
+				if(adminId != 0 && adminId == id) {
 					session.setAttribute("cognome", cognome);
 					response.sendRedirect("daticorsisti.jsp");
 				} else {

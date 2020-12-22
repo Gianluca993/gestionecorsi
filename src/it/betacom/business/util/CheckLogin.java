@@ -22,13 +22,13 @@ public class CheckLogin implements DAOConstants {
 		conn = DBAccess.getConnection();
 	}
 
-	public String getAdminId(String cognome) throws SQLException {
+	public long getAdminId(String cognome) throws SQLException {
 		PreparedStatement ps = conn.prepareStatement(GET_ADMINID);
 		ps.setString(1, cognome);
 		ResultSet rs = ps.executeQuery();
 		if (rs.next()) {
-			return rs.getString(1);
+			return rs.getLong(1);
 		}
-		return null;
+		return 0;
 	}
 }
