@@ -6,9 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import it.betacom.architecture.dao.DAOConstants;
 import it.betacom.architecture.dao.DBAccess;
 
-public class CorsoIdGenerator implements GeneralIdGenerator{
+public class CorsoIdGenerator implements GeneralIdGenerator, DAOConstants{
 
 	private static CorsoIdGenerator idGenerator;
 	private Connection conn;
@@ -31,7 +32,7 @@ public class CorsoIdGenerator implements GeneralIdGenerator{
 		long id = 0;
 		stmt = conn.createStatement();
 		//TODO query
-		rs = stmt.executeQuery("");
+		rs = stmt.executeQuery(CORSI_NEXTVAL);
 		rs.next();
 		id = rs.getLong(1);
 		return id;
