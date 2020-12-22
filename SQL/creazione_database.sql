@@ -68,6 +68,7 @@ delete from corsisti where 1=1;
 delete from docenti where 1=1;
 
 -- per popolare le tabelle in fase di testing
+insert into admin values(1, 'Giorgio', 'Armani');
 
 insert into docenti values(1,'Gino','Peppino','ginpeppurl');
 insert into docenti values(2,'Nonno','Nanni','nonnonaurl');
