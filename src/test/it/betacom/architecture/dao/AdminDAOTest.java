@@ -1,4 +1,4 @@
-package it.betacom.test.dao;
+package test.it.betacom.architecture.dao;
 
 import static org.junit.jupiter.api.Assertions.*;
 
