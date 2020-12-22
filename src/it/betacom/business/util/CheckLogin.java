@@ -6,10 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import it.betacom.architecture.dao.DAOConst;
+
+import it.betacom.architecture.dao.DAOConstants;
 import it.betacom.architecture.dao.DBAccess;
 
-public class CheckLogin implements DAOConst {
+public class CheckLogin implements DAOConstants {
 	
 	public static CheckLogin getFactory() throws SQLException, ClassNotFoundException, IOException {
 		return new CheckLogin();

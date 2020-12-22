@@ -1,6 +1,6 @@
 package it.betacom.architecture.dao;
 
-public interface DAOConst {
+public interface DAOConstants {
 	String TOT_CORSISTI="select count(*) from corsisti";
 	String CORSISTI_PER_CORSO="\r\n"
 			+ "select distinct nome_corsista, cognome_corsista from corsisti, corsi_corsisti, corsi where\r\n"
