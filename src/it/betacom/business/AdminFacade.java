@@ -25,7 +25,7 @@ public class AdminFacade {
 		docenteBC = new DocenteBC();
 	}
 	
-	public AdminFacade getInstance() throws ClassNotFoundException, SQLException, IOException {
+	public static AdminFacade getInstance() throws ClassNotFoundException, SQLException, IOException {
 		if (adminFacade == null)
 			adminFacade = new AdminFacade();
 		return adminFacade;
