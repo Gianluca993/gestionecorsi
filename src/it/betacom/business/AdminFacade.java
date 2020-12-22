@@ -40,16 +40,16 @@ public class AdminFacade {
 	public Corsista getCorsistaById(long id) throws SQLException {
 		return corsistaBC.getById(id);
 	}
-	public Corsista[] getAllCorsisti() {
+	public Corsista[] getAllCorsisti() throws SQLException {
 		return corsistaBC.getAll();
 	}
-	public void createCorsista(Corsista c) {
+	public void createCorsista(Corsista c) throws SQLException {
 		corsistaBC.create(c);
 	}
-	public void updateCorsista(Corsista c) {
+	public void updateCorsista(Corsista c) throws SQLException {
 		corsistaBC.update(c);
 	}
-	public void deleteCorsista(long id) {
+	public void deleteCorsista(long id) throws SQLException {
 		corsistaBC.delete(id);
 	}
 	
