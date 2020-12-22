@@ -9,6 +9,11 @@ import it.betacom.business.model.Admin;
 public abstract class AdapterAdminDAO implements GenericDAO<Admin> {
 
 	@Override
+	public Admin getById(Connection conn, long id) throws SQLException {
+		return null;
+	}
+
+	@Override
 	public void create(Connection conn, Admin entity) throws SQLException {
 		// TODO Auto-generated method stub
 		
@@ -27,16 +32,10 @@ public abstract class AdapterAdminDAO implements GenericDAO<Admin> {
 	}
 
 	@Override
-	public Admin getById(Connection conn, long id) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Admin[] getAll(Connection conn) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
-	}
-	
+	}	
 
+	
 }
