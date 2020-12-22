@@ -26,7 +26,7 @@ public class Login extends HttpServlet {
 				adminId = CheckLogin.getFactory().getAdminId(cognome);
 				if(adminId != null && adminId.equals(id)) {
 					session.setAttribute("cognome", cognome);
-					response.sendRedirect("/");
+					response.sendRedirect("daticorsisti.jsp");
 					//TODO redirect
 				}
 			} catch (ClassNotFoundException | SQLException | IOException e) {

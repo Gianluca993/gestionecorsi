@@ -1,24 +1,36 @@
 package test.it.betacom.architecture.dao;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import org.junit.jupiter.api.Test;
+
+import it.betacom.architecture.dao.DBAccess;
 
 class DBAccessTest {
 
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterAll
-	static void tearDownAfterClass() throws Exception {
-	}
 
 	@Test
 	void test() {
-		fail("Not yet implemented");
+		try {
+			Connection con=DBAccess.getConnection();
+			if(con==null)
+				fail("connessione null");
+			else
+				System.out.println("tutto nella norma");
+			
+			DBAccess.closeConnection();
+		} catch (ClassNotFoundException | SQLException | IOException e) {
+			// TODO Auto-generated catch block
+			fail("ops");
+			e.printStackTrace();
+		}
+		
 	}
+	
+	
 
 }
