@@ -3,6 +3,7 @@ package test.it.betacom.architecture.dao;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 
@@ -43,14 +44,50 @@ class CorsoCorsistaDAOTest {
 		corso.setCommentiCorso("Commenti del corso JAVA");
 		corso.setAulaCorso(2);
 		corso.setIdDocente(1);
+		System.out.println("CORSO PER IL TEST: " + corso.toString());
 		
 		corsista = new Corsista();
 		corsista.setIdCorsista(idCorsistaGenerator.nextId());
 		corsista.setNomeCorsista("gigio");
 		corsista.setCognomeCorsista("topo");
 		corsista.setPrecFormativi(false);
+		System.out.println("CORSISTA PER IL TEST: " + corsista.toString());
 	}
 
+
+
+	@Test
+	void testCreateCorsoCorsista() {
+		System.out.printf("Test create()/getById()\n");
+		try {
+			CorsoDAO.getFactory().create(conn, corso);
+			System.out.println("Creato Corso");
+			CorsistaDAO.getFactory().create(conn, corsista);
+			System.out.println("Creato Corsista");
+			
+			System.out.printf("\n -- Creando CorsoCorsista -- \n");
+			CorsoCorsista cc = new CorsoCorsista();
+			cc.setIdCorso(corso.getIdCorso());
+			cc.setIdCorsista(corsista.getIdCorsista());
+			
+			CorsoCorsistaDAO.getFactory().create(conn, cc);
+			System.out.println("Creato CorsoCorsista");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail("Create fallito");
+		}
+	}
+	
+	@Test
+	void testGetByCorsoId() throws SQLException {
+		CorsoCorsista corsoCorsisti[] = CorsoCorsistaDAO.getFactory().getByCorsoId(conn, corso.getIdCorso());
+		for(CorsoCorsista c: corsoCorsisti) {
+			System.out.println("CorsoCorsista: " + c.toString());
+		}
+		
+	}
+	
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
 		Statement stmt = conn.createStatement();
@@ -64,27 +101,6 @@ class CorsoCorsistaDAOTest {
 		DBAccess.closeConnection();
 		corso = null;
 		corsista = null;
-	}
-
-	@Test
-	void testCreateCorsoCorsista() {
-		try {
-			CorsoDAO.getFactory().create(conn, corso);
-			System.out.println("Creato Corso");
-			CorsistaDAO.getFactory().create(conn, corsista);
-			System.out.println("Creato Corsista");
-			
-			CorsoCorsista cc = new CorsoCorsista();
-			cc.setIdCorso(corso.getIdCorso());
-			cc.setIdCorsista(corsista.getIdCorsista());
-			
-			CorsoCorsistaDAO.getFactory().create(conn, cc);
-			System.out.println("Creato Corso-Corsista");
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail("create fallito");
-		}
 	}
 
 }
