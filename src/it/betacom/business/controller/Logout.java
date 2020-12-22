@@ -16,7 +16,7 @@ import it.betacom.business.util.CheckLogin;
 public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 3570454550821941657L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("cognome") != null) {
 			session.invalidate();
