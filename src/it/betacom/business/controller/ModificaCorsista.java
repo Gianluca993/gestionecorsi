@@ -15,8 +15,8 @@ import it.betacom.business.model.Corsista;
 /**
  * Servlet implementation class AggiungiCorsista
  */
-@WebServlet("/aggiungicorsista")
-public class AggiungiCorsista extends HttpServlet {
+@WebServlet("/modificacorsista")
+public class ModificaCorsista extends HttpServlet {
 	private static final long serialVersionUID = -1732386572633584297L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,7 +28,7 @@ public class AggiungiCorsista extends HttpServlet {
 		corsista.setCognomeCorsista(cognome);
 		corsista.setPrecFormativi(prec);
 		try {
-			AdminFacade.getInstance().createCorsista(corsista);
+			AdminFacade.getInstance().updateCorsista(corsista);
 		} catch (ClassNotFoundException | SQLException | IOException e) {
 			e.printStackTrace();
 			throw new ServletException(e.getMessage());
