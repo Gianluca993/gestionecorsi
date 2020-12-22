@@ -47,15 +47,15 @@ footer section{
 }
 
 footer a:link{
-	color:#ff8a00;
+	color: white;
 }
 
 footer a:visited{
-	color:#ff8a00;
+	color:white;
 }
 
 footer a:hover{
-	color:white;
+	color: green;
 }
 
 p.copyright{
