@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import it.betacom.architecture.dao.DAOConstants;
+
 import it.betacom.architecture.dao.DBAccess;
 
-public class DocenteIdGenerator implements GeneralIdGenerator, DAOConstants {
+public class DocenteIdGenerator implements GeneralIdGenerator{
 	
 	private static DocenteIdGenerator idGenerator;
 	private Connection conn;
@@ -30,7 +30,10 @@ public class DocenteIdGenerator implements GeneralIdGenerator, DAOConstants {
 		return id;
 	}
 	
-	public static DocenteIdGenerator getFactory() throws ClassNotFoundException, SQLException, IOException {
+	public static DocenteIdGenerator getInstance() throws ClassNotFoundException, SQLException, IOException {
+		if(idGenerator == null) {
+			idGenerator = new DocenteIdGenerator();
+		}
 		return idGenerator;
 	}
 

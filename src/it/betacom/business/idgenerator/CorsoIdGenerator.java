@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import it.betacom.architecture.dao.DAOConstants;
+
 import it.betacom.architecture.dao.DBAccess;
 
-public class CorsoIdGenerator implements GeneralIdGenerator, DAOConstants{
+public class CorsoIdGenerator implements GeneralIdGenerator{
 
 	private static CorsoIdGenerator idGenerator;
 	private Connection conn;

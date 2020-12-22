@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import it.betacom.architecture.dao.DAOConstants;
+
 import it.betacom.architecture.dao.DBAccess;
 
-public class CorsistaIdGenerator implements GeneralIdGenerator, DAOConstants {
+public class CorsistaIdGenerator implements GeneralIdGenerator{
 
 	private static CorsistaIdGenerator idGenerator;
 
@@ -31,7 +31,11 @@ public class CorsistaIdGenerator implements GeneralIdGenerator, DAOConstants {
 		return id;
 	}
 
-	public static CorsistaIdGenerator getFactory() throws ClassNotFoundException, SQLException, IOException {
+	public static CorsistaIdGenerator getInstance() throws ClassNotFoundException, SQLException, IOException {
+		if(idGenerator == null) {
+			idGenerator = new CorsistaIdGenerator();
+		}
 		return idGenerator;
+		
 	}
 }
