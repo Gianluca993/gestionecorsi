@@ -11,11 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.websocket.server.PathParam;
 
 import it.betacom.business.AdminFacade;
-import it.betacom.business.model.Corsista;
 
-/**
- * Servlet implementation class AggiungiCorsista
- */
 @WebServlet("/eliminacorsista/{id}")
 public class EliminaCorsista extends HttpServlet {
 	private static final long serialVersionUID = -1732386572633584297L;
