@@ -9,7 +9,6 @@ public interface DAOConstants {
 			+ "corsi_corsisti.id_corsista=corsisti.id_corsista and corsi_corsisti.id_corso=?";
 	String NUMERO_COMMENTI="select count(commenti_corso) from corsi";
 	String DATA_INIZIO_LASTC="select data_inizio from corsi where data_inizio=(select max(data_inizio) from corsi)";
-	String CORSISTI_GETALL="select * from corsisti";
 	String DURATA_MEDIA="select avg(((data_fine-data_inizio)-((data_fine-data_inizio)/7*2))) from corsi";
 	String ALL_CV="select cv_docente from docenti";
 	String CV_DOCENTE="select cv_docente from docenti where id_docente=?";
@@ -27,6 +26,10 @@ public interface DAOConstants {
 	String CORSISTA="select * from corsisti where id_corsista=?";
 	String DOCENTE="select * from docenti where id_docente=?";
 	String CORSO="select * from corsi where id_corso=?";
+	String DOCENTE_GETALL="select * from docenti";
+	String CORSO_GETALL="select * from corsi";
+	String CORSI_CORSISTI_GETALL="select * from corsi_corsisti";
+	String CORSISTI_GETALL="select * from corsisti";
 	
 	//DELETE
 	
