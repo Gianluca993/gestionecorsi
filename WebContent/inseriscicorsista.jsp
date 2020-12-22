@@ -1,5 +1,7 @@
+<%@page import="it.betacom.business.model.Corso"%>
+<%@page import="it.betacom.business.AdminFacade"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,49 +11,62 @@
 <title>Inserisci corsista</title>
 </head>
 <body>
-<jsp:include page="nav.jsp" />
+	<jsp:include page="nav.jsp" />
 
 
-<div class="container-fluid align-context-center">
-<h1>Inserisci corsista</h1>
-<div class=col-md-4>
-<form action="/<%=application.getServletContextName()%>/aggiungicorsista"
-			class="form-horizontal" method="post" id="corsistaForm">
-  <div class="form-group">
-    <label for="nome_corsista">Nome Corsista</label>
-    <input type="text" class="form-control" id="Nomecorsista" name="nome" placeholder="Nome.." required>
-  </div>
- 
- 
-   <div class="form-group">
-    <label for="cognomeCorsista">Cognome Corsista</label>
-    <input type="text" class="form-control" id="cognomeCorsista" name="cognome" placeholder="Cognome" required>
-  </div>
- 
- 
- <div class="form-group">
-    <label for="precformativi">Precedenti formativi</label>
-    <input type="checkbox" class="form-control" name ="prec" id="precformativi" value="1">
-  </div>
-  
-  <div class="form-group">
-    <label for="corso_corsista">Precedenti formativi</label>
-    <input type="checkbox" class="form-control" id="corso_corsista">
-  </div>
- 
- 
- 
- <button type="submit" class="btn btn-primary">Aggiungi</button>
-</form>
-
-</div>
+	<div class="container-fluid align-context-center">
+		<h1>Inserisci corsista</h1>
+		<div class=col-md-4>
+			<form
+				action="/<%=application.getServletContextName()%>/aggiungicorsista"
+				class="form-horizontal" method="post" id="corsistaForm">
+				<div class="form-group">
+					<label for="nome_corsista">Nome Corsista</label> <input type="text"
+						class="form-control" id="Nomecorsista" name="nome"
+						placeholder="Nome.." required>
+				</div>
 
 
+				<div class="form-group">
+					<label for="cognomeCorsista">Cognome Corsista</label> <input
+						type="text" class="form-control" id="cognomeCorsista"
+						name="cognome" placeholder="Cognome" required>
+				</div>
 
-</div>
+
+				<div class="form-group">
+					<label for="precformativi">Precedenti formativi</label> <input
+						type="checkbox" class="form-control" name="prec"
+						id="precformativi" value="1">
+				</div>
+
+				<div class="form-group">
+					<label for="corso_corsista">Corso:</label> 
+					<select id="corso_corsista" name="corso" class="custom-select" multiple>
+						<%
+							Corso[] corsi = AdminFacade.getInstance().getAllCorsi();
+							for(Corso c : corsi) {
+						%>
+						<option value="<%= c.getIdCorso() %>"><%= c.getNomeCorso() %></option>
+						<%
+							}
+						%>
+					</select>
+				</div>
 
 
 
-<footer class="footer"><%@include file="footer.html" %></footer>
+				<button type="submit" class="btn btn-primary">Aggiungi</button>
+			</form>
+
+		</div>
+
+
+
+	</div>
+
+
+
+	<footer class="footer"><%@include file="footer.html"%></footer>
 </body>
 </html>
