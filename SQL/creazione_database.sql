@@ -73,6 +73,7 @@ insert into docenti values(1,'Gino','Peppino','ginpeppurl');
 insert into docenti values(2,'Nonno','Nanni','nonnonaurl');
 insert into docenti values(3,'Maggio','For','forurl');
 insert into docenti values(4,'Ben','Zina','benurl');
+--
 
 insert into corsi values(1,'JAVA','20-FEB-2020','21-MAR-2020', 127.00,'java corso',1,1);
 insert into corsi values(2,'GOLANG','22-MAR-2020','23-MAG-2020', 200.00,'golang corso',1,1);
