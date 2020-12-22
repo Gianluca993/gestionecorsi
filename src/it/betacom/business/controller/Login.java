@@ -24,7 +24,7 @@ public class Login extends HttpServlet {
 		if (cognome != null && id != null) {
 			try {
 				adminId = CheckLogin.getFactory().getAdminId(cognome);
-				if(adminId.equals(id)) {
+				if(adminId != null && adminId.equals(id)) {
 					session.setAttribute("cognome", cognome);
 					response.sendRedirect("/");
 					//TODO redirect
