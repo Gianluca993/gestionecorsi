@@ -23,6 +23,8 @@
       <th scope="col">Nome Corsista</th>
       <th scope="col">Cognome Corsista</th>
       <th scope="col">Corso Attuale</th>
+      <th scope="col">Modifica</th>
+      <th scope="col">Elimina</th>
     </tr>
   </thead>
   <tbody>
@@ -32,6 +34,8 @@
       <td>Larry</td>
       <td>the Bird</td>
       <td>Meccatronica</td>
+      <td><a href="eliminacorso.jsp"><button type="submit" class="btn btn-warning">Modifica</button></a></td>
+      <td><a href="eliminacorso.jsp"><button type="submit" class="btn btn-danger">Elimina</button></a></td>
     </tr>
   </tbody>
 </table>
