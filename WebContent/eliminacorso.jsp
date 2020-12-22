@@ -31,7 +31,7 @@
       <td></td>
       <td></td>
       <td></td>
-      <td><button type="submit" class=" btn btn-danger"> Elimina Corsos</button>
+      <td><button type="submit" class=" btn btn-danger"> Elimina Corso</button>
     </tr>
   </tbody>
 </table>
