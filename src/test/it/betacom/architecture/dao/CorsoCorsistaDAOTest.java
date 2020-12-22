@@ -14,6 +14,8 @@ import it.betacom.architecture.dao.CorsistaDAO;
 import it.betacom.architecture.dao.CorsoCorsistaDAO;
 import it.betacom.architecture.dao.CorsoDAO;
 import it.betacom.architecture.dao.DBAccess;
+import it.betacom.business.idgenerator.CorsistaIdGenerator;
+import it.betacom.business.idgenerator.CorsoIdGenerator;
 import it.betacom.business.model.Corsista;
 import it.betacom.business.model.Corso;
 import it.betacom.business.model.CorsoCorsista;
@@ -24,11 +26,16 @@ class CorsoCorsistaDAOTest {
 	static Corso corso;
 	static Corsista corsista;
 	static Docente docente;
+	static CorsoIdGenerator idCorsoGenerator;
+	static CorsistaIdGenerator idCorsistaGenerator;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		conn = DBAccess.getConnection();
+		idCorsoGenerator = CorsoIdGenerator.getInstance();
+		idCorsistaGenerator = CorsistaIdGenerator.getInstance();
 		corso = new Corso();
+		corso.setIdCorso(idCorsoGenerator.nextId());
 		corso.setNomeCorso("Java");
 		corso.setDataInizio(new Date());
 		corso.setDataFine(new Date());
@@ -38,6 +45,7 @@ class CorsoCorsistaDAOTest {
 		corso.setIdDocente(1);
 		
 		corsista = new Corsista();
+		corsista.setIdCorsista(idCorsistaGenerator.nextId());
 		corsista.setNomeCorsista("gigio");
 		corsista.setCognomeCorsista("topo");
 		corsista.setPrecFormativi(false);
@@ -46,7 +54,7 @@ class CorsoCorsistaDAOTest {
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
 		Statement stmt = conn.createStatement();
-		stmt.execute("delete corsi_corsisti where corso_id = " + corso.getIdCorso());
+		stmt.execute("delete corsi_corsisti where id_corso = " + corso.getIdCorso());
 		stmt.close();
 		CorsistaDAO.getFactory().delete(conn, corsista.getIdCorsista());
 		CorsoDAO.getFactory().delete(conn, corso.getIdCorso());

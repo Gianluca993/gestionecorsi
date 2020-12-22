@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.sql.rowset.CachedRowSet;
+import javax.sql.rowset.RowSetProvider;
 
 import it.betacom.architecture.dao.adapter.AdapterCorsoCorsistaDAO;
 import it.betacom.business.model.CorsoCorsista;
@@ -17,15 +18,20 @@ public class CorsoCorsistaDAO extends AdapterCorsoCorsistaDAO {
 	}
 
 	private CachedRowSet rowSet;
+	
+	private CorsoCorsistaDAO() throws SQLException {
+		rowSet = RowSetProvider.newFactory().createCachedRowSet();
+	}
 
 	@Override
 	public void create(Connection conn, CorsoCorsista entity) throws SQLException {
-		rowSet.setCommand(CORSO_GETALL);
+		rowSet.setCommand(CORSI_CORSISTI_GETALL);
 		rowSet.execute(conn);
 		rowSet.moveToInsertRow();
 		rowSet.updateLong(1, entity.getIdCorso());
 		rowSet.updateLong(2, entity.getIdCorsista());
 		rowSet.insertRow();
+		rowSet.moveToCurrentRow();
 		rowSet.acceptChanges();
 	}
 
