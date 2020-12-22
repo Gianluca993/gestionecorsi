@@ -10,9 +10,14 @@ import it.betacom.architecture.dao.DAOConst;
 import it.betacom.architecture.dao.DBAccess;
 
 public class CheckLogin implements DAOConst {
+	
+	public static CheckLogin getFactory() throws SQLException, ClassNotFoundException, IOException {
+		return new CheckLogin();
+	}
+
 	private Connection conn;
 
-	public CheckLogin() throws SQLException, ClassNotFoundException, IOException {
+	private CheckLogin() throws SQLException, ClassNotFoundException, IOException {
 		conn = DBAccess.getConnection();
 	}
 
