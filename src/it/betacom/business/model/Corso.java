@@ -11,6 +11,7 @@ public class Corso {
 	private String commentiCorso;
 	private int aulaCorso;
 	private long idDocente;
+	
 	public long getIdCorso() {
 		return idCorso;
 	}

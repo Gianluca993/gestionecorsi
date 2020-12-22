@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<jsp:useBean id="carrello"
+	class="it.betacom.business.controller.Login" scope="session" />
 <link rel="stylesheet" href="css/style.css">
 <%@include file="CDN.html"%>
 <title>Home</title>
@@ -14,7 +16,8 @@
 
 <div class="container-fluid align-context-center">
 <div class=col-md-4>
-<form>
+<form action="/<%=application.getServletContextName()%>/login"
+			class="form-horizontal" method="post" id="adminForm">
   <div class="form-group">
     <label for="id_admin">Id Admin</label>
     <input type="text" class="form-control" id="adaccess" placeholder="Enter Id" required>

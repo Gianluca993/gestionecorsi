@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import it.betacom.architecture.dao.GenericDAO;
-import it.betacom.business.model.Admin;
 import it.betacom.business.model.Docente;
 
 public abstract class AdapterDocenteDAO implements GenericDAO<Docente> {

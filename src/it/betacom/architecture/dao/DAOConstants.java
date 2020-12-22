@@ -26,6 +26,8 @@ public interface DAOConstants {
 	String CORSISTA="select * from corsisti where id_corsista=?";
 	String DOCENTE="select * from docenti where id_docente=?";
 	String CORSO="select * from corsi where id_corso=?";
+	
+	//SELECT ALL
 	String DOCENTE_GETALL="select * from docenti";
 	String CORSO_GETALL="select * from corsi";
 	String CORSI_CORSISTI_GETALL="select * from corsi_corsisti";
