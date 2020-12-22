@@ -20,6 +20,12 @@
     <input type="text" class="form-control" id="adaccess" placeholder="Enter Id" required>
   </div>
  
+ 
+   <div class="form-group">
+    <label for="cognome_admin">Cognome Admin</label>
+    <input type="text" class="form-control" id="cogadmin" placeholder="Enter Cognome" required>
+  </div>
+ 
   <a href="#"><button type="submit" class="btn btn-primary">Entra</button></a>
 </form>
 
