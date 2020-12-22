@@ -1,6 +1,8 @@
 package it.betacom.architecture.dao;
 
 public interface DAOConstants {
+	
+	//STATS
 	String TOT_CORSISTI="select count(*) from corsisti";
 	String CORSISTI_PER_CORSO="\r\n"
 			+ "select distinct nome_corsista, cognome_corsista from corsisti, corsi_corsisti, corsi where\r\n"
@@ -38,5 +40,6 @@ public interface DAOConstants {
 	String UPD_CORSISTA="update corsisti set nome_corsista=?, cognome_corsista=?, precedenti_formativi=? where id_corsista=?";
 	String UPD_CORSO="update corsi set nome_corso=?, data_inizio=?, data_fine=?, costo=?, commenti_corso=?, aula_corso=?, id_docente=? where id_corso=?";
 	
-	
+	//LOGIN
+	String GET_ADMINID="select admin_id from admin where cognome = ?";	
 }
