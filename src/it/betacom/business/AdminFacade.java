@@ -60,7 +60,7 @@ public class AdminFacade {
 	public Corso[] getAllCorsi() throws SQLException {
 		return corsoBC.getAll();
 	}
-	public void createCorso(Corso c) throws SQLException {
+	public void createCorso(Corso c) throws SQLException, ClassNotFoundException, IOException {
 		corsoBC.create(c);
 	}
 	public void updateCorso(Corso c) throws SQLException {
