@@ -9,7 +9,10 @@ import java.util.Date;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import it.betacom.architecture.dao.CorsistaDAO;
 import it.betacom.architecture.dao.CorsoCorsistaDAO;
@@ -22,6 +25,7 @@ import it.betacom.business.model.Corso;
 import it.betacom.business.model.CorsoCorsista;
 import it.betacom.business.model.Docente;
 
+@TestMethodOrder(OrderAnnotation.class)
 class CorsoCorsistaDAOTest {
 	static Connection conn;
 	static Corso corso;
@@ -57,8 +61,9 @@ class CorsoCorsistaDAOTest {
 
 
 	@Test
+	@Order(1)
 	void testCreateCorsoCorsista() {
-		System.out.printf("Test create()/getById()\n");
+		System.out.printf("Test create()\n");
 		try {
 			CorsoDAO.getFactory().create(conn, corso);
 			System.out.println("Creato Corso");
@@ -80,12 +85,35 @@ class CorsoCorsistaDAOTest {
 	}
 	
 	@Test
+	@Order(2)
 	void testGetByCorsoId() throws SQLException {
+		System.out.print("\nTest getByIdCorso()\n");
 		CorsoCorsista corsoCorsisti[] = CorsoCorsistaDAO.getFactory().getByCorsoId(conn, corso.getIdCorso());
 		for(CorsoCorsista c: corsoCorsisti) {
 			System.out.println("CorsoCorsista: " + c.toString());
 		}
 		
+	}
+	
+	@Test
+	@Order(3)
+	void testGetByCorsistaId() throws SQLException {
+		System.out.print("\nTest getByIdCorsista()\n");
+		CorsoCorsista corsoCorsisti[] = CorsoCorsistaDAO.getFactory().getByCorsistaId(conn, corsista.getIdCorsista());
+		for(CorsoCorsista c: corsoCorsisti) {
+			System.out.println("CorsoCorsista: " + c.toString());
+		}
+		
+	}
+	
+	@Test
+	@Order(4)
+	void testGetAll() throws SQLException {
+		System.out.print("\nTest getAll()\n");
+		CorsoCorsista corsoCorsisti[] = CorsoCorsistaDAO.getFactory().getAll(conn);
+		for(CorsoCorsista c: corsoCorsisti) {
+			System.out.println("CorsoCorsista: " + c.toString());
+		}
 	}
 	
 	@AfterAll
