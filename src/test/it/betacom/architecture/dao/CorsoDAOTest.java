@@ -1,7 +1,5 @@
 package test.it.betacom.architecture.dao;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -13,6 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import it.betacom.architecture.dao.CorsoDAO;
 import it.betacom.architecture.dao.DBAccess;
+import it.betacom.business.idgenerator.CorsoIdGenerator;
 import it.betacom.business.model.Corso;
 
 class CorsoDAOTest {
@@ -21,13 +20,16 @@ class CorsoDAOTest {
 	static Corso corso1;
 	static Corso corso2;
 
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		
 		conn = DBAccess.getConnection();
 		
+		CorsoIdGenerator idGenerator = CorsoIdGenerator.getInstance();
+		
 		corso1 = new Corso();
-		corso1.setIdCorso(1);
+		corso1.setIdCorso(idGenerator.nextId());
 		corso1.setNomeCorso("Java");
 		corso1.setDataInizio(new Date());
 		corso1.setDataFine(new Date());
@@ -38,7 +40,7 @@ class CorsoDAOTest {
 		System.out.println("CORSO 1 PER IL TEST: " + corso1.toString());
 		
 		corso2 = new Corso();
-		corso2.setIdCorso(2);
+		corso2.setIdCorso(idGenerator.nextId());
 		corso2.setNomeCorso("Angular");
 		corso2.setDataInizio(new Date());
 		corso2.setDataFine(new Date());
@@ -57,11 +59,11 @@ class CorsoDAOTest {
 		System.out.println("Test create()/getById()");
 		CorsoDAO corsoDAO =  CorsoDAO.getFactory();
 		corsoDAO.create(conn, corso1);
-		Corso c1 = corsoDAO.getById(conn, 1);
+		Corso c1 = corsoDAO.getById(conn, corso1.getIdCorso());
 		System.out.println("Corso 1 creato --> " + c1.toString());
 		
 		corsoDAO.create(conn, corso2);
-		Corso c2 = corsoDAO.getById(conn, 2);
+		Corso c2 = corsoDAO.getById(conn, corso2.getIdCorso());
 		System.out.println("Corso 2 creato --> " + c2.toString());
 	}
 	
@@ -71,7 +73,7 @@ class CorsoDAOTest {
 		System.out.println("Test update()");
 		CorsoDAO corsoDAO =  CorsoDAO.getFactory();
 		Corso c = new Corso();
-		c.setIdCorso(1);
+		c.setIdCorso(corso1.getIdCorso());
 		c.setNomeCorso("Java 2");
 		c.setDataInizio(new Date());
 		c.setDataFine(new Date());
@@ -105,10 +107,10 @@ class CorsoDAOTest {
 		System.out.println();
 		System.out.println("Test delete()");
 		CorsoDAO corsoDAO = CorsoDAO.getFactory();
-		corsoDAO.delete(conn, 1);
+		corsoDAO.delete(conn, corso1.getIdCorso());
 		System.out.println("Corso 1 eliminato");
 		
-		corsoDAO.delete(conn, 2);
+		corsoDAO.delete(conn, corso2.getIdCorso());
 		System.out.println("Corso 2 eliminato");
 		conn.close();
 	}
