@@ -25,7 +25,7 @@ public class CorsistaDAO implements GenericDAO<Corsista>{
 
 	@Override
 	public void create(Connection conn, Corsista entity) throws SQLException {
-		rowSet.setCommand(CORSO_GETALL);
+		rowSet.setCommand(CORSISTI_GETALL);
 		rowSet.execute(conn);
 		rowSet.moveToInsertRow();
 		rowSet.updateLong(1, entity.getIdCorsista());
@@ -43,7 +43,8 @@ public class CorsistaDAO implements GenericDAO<Corsista>{
 		ps = conn.prepareStatement(UPD_CORSISTA);
 		ps.setString(1, entity.getNomeCorsista());
 		ps.setString(2, entity.getCognomeCorsista());
-		ps.setLong(3, entity.getIdCorsista());
+		ps.setInt(3, entity.isPrecFormativi()?1:0);
+		ps.setLong(4, entity.getIdCorsista());
 		ps.execute();
 		
 	}
