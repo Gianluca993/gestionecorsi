@@ -60,6 +60,14 @@ create sequence docenti_seq;
 
 
 
+--per pulire le tabelle in fase di testing
+
+delete from corsi_corsisti where 1=1;
+delete from corsi where 1=1;
+delete from corsisti where 1=1;
+delete from docenti where 1=1;
+
+-- per popolare le tabelle in fase di testing
 
 insert into docenti values(1,'Gino','Peppino','ginpeppurl');
 insert into docenti values(2,'Nonno','Nanni','nonnonaurl');
