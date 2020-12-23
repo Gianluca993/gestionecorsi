@@ -46,6 +46,7 @@ public class CorsistaDAO implements GenericDAO<Corsista>{
 		ps.setInt(3, entity.isPrecFormativi()?1:0);
 		ps.setLong(4, entity.getIdCorsista());
 		ps.execute();
+		conn.commit();
 		
 	}
 
@@ -55,6 +56,7 @@ public class CorsistaDAO implements GenericDAO<Corsista>{
 		ps = conn.prepareStatement(DEL_CORSISTA);
 		ps.setLong(1, id);
 		ps.execute();
+		conn.commit();
 	}
 
 	@Override
