@@ -58,10 +58,17 @@
 						<%
 							Corso[] corsi = AdminFacade.getInstance().getAllCorsi();
 							for(Corso c : corsi) {
+								if(corsoCorsista != null) {
 						%>
 <%-- 						<%if (corsoCorsista.getIdCorso()) %> --%>
 						<option value="<%= c.getIdCorso() %>" <%= c.getIdCorso()==corsoCorsista.getIdCorso()?"selected":"" %>><%= c.getNomeCorso() %></option>
 						<%
+								} else {
+						
+						%>
+						<option value="<%= c.getIdCorso() %>"><%= c.getNomeCorso() %></option>
+						<%
+								}
 							}
 						%>
 					</select>

@@ -34,7 +34,7 @@ public class ModificaCorsista extends HttpServlet {
 		try {
 			CorsoCorsista lastCorso = AdminFacade.getInstance().getLastCorsoCorsistaByCorsistaId(id);
 			AdminFacade.getInstance().updateCorsista(corsista);
-			if(lastCorso.getIdCorso() == corsoId) {
+			if(lastCorso != null && lastCorso.getIdCorso() == corsoId) {
 				CorsoCorsista newCorso = new CorsoCorsista();
 				newCorso.setIdCorso(corsoId);
 				newCorso.setIdCorsista(id);
