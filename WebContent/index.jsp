@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%
+    	if(session.getAttribute("cognome") != null) {
+    		response.sendRedirect("daticorsisti.jsp");
+    	}
+    %>
 <!DOCTYPE html>
 <html>
 <head>

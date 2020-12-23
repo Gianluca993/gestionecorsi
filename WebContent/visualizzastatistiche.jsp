@@ -5,6 +5,9 @@
 	pageEncoding="ISO-8859-1"%>
 <%
 	String stat = request.getParameter("stat");
+	if(stat == null) {
+		stat = "numcor";
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -48,7 +51,7 @@
 	<div class="container mt-4">
 
 		<%
-			if (stat == null || stat.equals("numcor")) {
+			if (stat.equals("numcor")) {
 				int numeroCors = AdminFacade.getInstance().getAllCorsisti().length;
 		%>
 
