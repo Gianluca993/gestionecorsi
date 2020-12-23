@@ -21,7 +21,6 @@ public class EliminaCorso extends HttpServlet {
 		String cognome = (String) session.getAttribute("cognome");
 		if(cognome != null ) {
 			long id = Long.parseLong(request.getParameter("idCorso"));
-			System.out.println("ID DEL CORSO: " + id);
 			try {
 				AdminFacade.getInstance().deleteCorso(id);
 			} catch (ClassNotFoundException | SQLException | IOException e) {
