@@ -121,6 +121,48 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants{
 		
 	}
 
+	public Corso getCorsoPiuFreq(Connection conn) throws SQLException {
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(CORSO_MAXFREQ);
+		Corso c = null;
+		if(rs.next()) {
+			c = getById(conn, rs.getLong(1));
+		}
+		return c;
+			
+	}
 	
+	public Corso getDataUltimoCorso(Connection conn) throws SQLException {
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(DATA_INIZIO_LASTC);
+		Corso c = null;
+		if(rs.next())
+			c = getById(conn, rs.getLong(1));
+		return c;
+	}
 	
+	public double getDurataMediaCorsi(Connection conn) throws SQLException {
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(DURATA_MEDIA);
+		double durata = 0;
+		if(rs.next())
+			durata = rs.getDouble(1);
+		return durata;
+	}
+	
+	public Corso[] getCorsiDisponibili(Connection conn) throws SQLException {
+		Corso[] corsi = null;
+		Statement stmt = conn.createStatement(
+				ResultSet.TYPE_SCROLL_INSENSITIVE,
+				ResultSet.CONCUR_READ_ONLY);
+		ResultSet rs = stmt.executeQuery(CORSI_POSTI_LIBERI);
+		rs.last();
+		corsi = new Corso[rs.getRow()];		
+		rs.beforeFirst();
+		for(int i = 0; rs.next(); i++) {
+			Corso c = getById(conn, rs.getLong(1));
+			corsi[i] = c;
+		}
+		return corsi;
+	}
 }

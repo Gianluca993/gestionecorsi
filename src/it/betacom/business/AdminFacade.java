@@ -3,6 +3,7 @@ package it.betacom.business;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import it.betacom.architecture.dao.CorsoDAO;
 import it.betacom.business.model.Admin;
 import it.betacom.business.model.Corsista;
 import it.betacom.business.model.Corso;
@@ -16,6 +17,7 @@ public class AdminFacade {
 	CorsoBC corsoBC;
 	CorsoCorsistaBC corsoCorsistaBC;
 	DocenteBC docenteBC;
+	StatsBC statsBC;
 	
 	private AdminFacade() throws ClassNotFoundException, SQLException, IOException {
 		adminBC = new AdminBC();
@@ -23,6 +25,7 @@ public class AdminFacade {
 		corsoBC = new CorsoBC();
 		corsoCorsistaBC = new CorsoCorsistaBC();
 		docenteBC = new DocenteBC();
+		statsBC = new StatsBC();
 	}
 	
 	public static AdminFacade getInstance() throws ClassNotFoundException, SQLException, IOException {
@@ -81,7 +84,7 @@ public class AdminFacade {
 		corsoCorsistaBC.create(c);
 	}
 	
-	//DOCENTE
+	// DOCENTE
 	public Docente getDocenteById(long id) throws SQLException {
 		return docenteBC.getById(id);
 	}
@@ -89,4 +92,21 @@ public class AdminFacade {
 		return docenteBC.getAll();
 	}
 	
+	// STATS
+		// CORSI
+	public Corso getCorsoPiuFreq() throws SQLException {
+		return statsBC.getCorsoPiuFreq();
+	}
+	
+	public Corso getDataUltimoCorso() throws SQLException {
+		return statsBC.getDataUltimoCorso();
+	}
+	
+	public double getDurataMediaCorsi() throws SQLException {
+		return statsBC.getDurataMediaCorsi();
+	}
+	
+	public Corso[] getCorsiDisponibili() throws SQLException {
+		return statsBC.getCorsiDisponibili();
+	}
 }
