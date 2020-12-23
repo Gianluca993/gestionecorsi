@@ -31,8 +31,8 @@ public class StatsBC {
 		return CorsoDAO.getFactory().getDurataMediaCorsi(conn);
 	}
 	
-	public void getNumeroCommenti() {
-		
+	public int getNumeroCommenti() throws SQLException {
+		return CorsoDAO.getFactory().getAll(conn).length;
 	}
 	
 	public Corso[] getCorsiDisponibili() throws SQLException {
