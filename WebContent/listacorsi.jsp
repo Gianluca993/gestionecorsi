@@ -17,7 +17,7 @@
 <jsp:include page="nav.jsp" />
 
 
-<div class="container mt-4">
+<div class="container mt-4 mb-2">
 <div class=col-md-12>
 <table class="table">
   <thead>
@@ -49,13 +49,6 @@
 </table>
 
 </div>
-</div>
-
-
-<div class="container mt-5 ">
-<a href="inseriscicorsista.jsp"><button type="submit" class="btn btn-info">Inserisci corsista</button></a>
-<a href="visualizzastatistiche.jsp"><button type="submit" class="btn btn-success">Visualizza Statistiche</button></a>
-<a href="eliminacorso.jsp"><button type="submit" class="btn btn-danger">Elimina Corso</button></a>
 </div>
 
 

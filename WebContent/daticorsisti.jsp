@@ -46,7 +46,7 @@
 </div>
 
 
-<div class="container">
+<div class="container mt-2">
 <a href="inseriscicorsista.jsp"><button type="submit" class="btn btn-info">Inserisci corsista</button></a>
 <a href="visualizzastatistiche.jsp"><button type="submit" class="btn btn-success">Visualizza Statistiche</button></a>
 <a href="eliminacorso.jsp"><button type="submit" class="btn btn-danger">Elimina Corso</button></a>
