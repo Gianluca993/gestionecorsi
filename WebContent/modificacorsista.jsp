@@ -16,16 +16,17 @@
 <!DOCTYPE html>
 <html>
 	<head>
+			<link rel="stylesheet" href="css/style.css">
 		<%@include file="CDN.html" %>
 		<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-		<link rel="stylesheet" href="css/style.css">
+
 		<title>Modifica Corsista</title>
 	</head>
 	<body>
 		<jsp:include page="nav.jsp"/>
 		<div class="container">
 			<div class="page-header">
-				<h2>Modifica dati <span class="glyphicon glyphicon-cog"></span></h2>
+				<h2>Modifica dati Corsista <span class="glyphicon glyphicon-cog"></span></h2>
 			</div>
 			<%
 				Connection conn = DBAccess.getConnection();
