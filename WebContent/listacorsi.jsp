@@ -42,7 +42,13 @@
       <td><%= c.getCosto() %></td>
       <td><%= c.getCommentiCorso() %></td>
       <td><%= c.getAulaCorso() %></td>
-      <td><button type="submit" class=" btn btn-danger"> Elimina Corso</button></td>
+      <td>
+      <form action="/<%=application.getServletContextName()%>/eliminacorso"  method="post"> 
+      <input type="hidden" name="idCorso" value="<%= c.getIdCorso() %>">
+      <button type="submit" class=" btn btn-danger"> Elimina Corso</button>
+      </form>
+      </td>
+     
     </tr>
     <%} %>
   </tbody>
