@@ -36,7 +36,12 @@
       <td><%= c.getNomeCorsista() %></td>
       <td> <%= c.getCognomeCorsista() %></td>
       <td><a href="modificacorsista.jsp?id=<%=c.getIdCorsista() %>"><button type="submit" class="btn btn-warning">Modifica</button></a></td>
-      <td><a href="eliminacorsista.jsp"><button type="submit" class="btn btn-danger">Elimina</button></a></td>
+      <td>
+	      <form action="/<%=application.getServletContextName()%>/eliminacorsista" method="post">
+	      	<input type="hidden" name="id" value="<%= c.getIdCorsista() %>">
+	        <button type="submit" class="btn btn-danger">Elimina</button>
+	      </form>
+     </td>
     </tr>
     <%} %>
   </tbody>

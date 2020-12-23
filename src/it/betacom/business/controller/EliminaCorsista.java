@@ -17,7 +17,7 @@ import it.betacom.business.AdminFacade;
 public class EliminaCorsista extends HttpServlet {
 	private static final long serialVersionUID = -1732386572633584297L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		long id = Long.parseLong(request.getParameter("id"));
 		try {
 			AdminFacade.getInstance().deleteCorsista(id);
