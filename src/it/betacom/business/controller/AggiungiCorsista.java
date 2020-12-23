@@ -29,6 +29,7 @@ public class AggiungiCorsista extends HttpServlet {
 		corsista.setPrecFormativi(prec);
 		try {
 			AdminFacade.getInstance().createCorsista(corsista);
+			response.sendRedirect("listacorsi.jsp");
 		} catch (ClassNotFoundException | SQLException | IOException e) {
 			e.printStackTrace();
 			throw new ServletException(e.getMessage());
