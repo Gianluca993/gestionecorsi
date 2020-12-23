@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="it.betacom.business.AdminFacade" %>
+<%@page import="it.betacom.business.model.Corso" %>
+ <% Corso corsi[] = AdminFacade.getInstance().getAllCorsi(); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,17 +33,18 @@
     </tr>
   </thead>
   <tbody>
-   
+    <% for(Corso c : corsi){ %>
     <tr>
-      <td scope="row"></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><%= c.getIdCorso() %></td>
+      <td><%= c.getNomeCorso() %></td>
+      <td><%= c.getDataInizio() %></td>
+      <td><%= c.getDataFine() %></td>
+      <td><%= c.getCosto() %></td>
+      <td><%= c.getCommentiCorso() %></td>
+      <td><%= c.getAulaCorso() %></td>
       <td><button type="submit" class=" btn btn-danger"> Elimina Corso</button></td>
     </tr>
+    <%} %>
   </tbody>
 </table>
 
