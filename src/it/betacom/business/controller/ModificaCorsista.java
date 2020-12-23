@@ -26,7 +26,7 @@ public class ModificaCorsista extends HttpServlet {
 		long id = Long.parseLong(request.getParameter("idCorsista"));
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
-		boolean prec = Integer.parseInt(request.getParameter("prec")) == 1;
+		boolean prec = request.getParameter("prec") != null;
 		long corsoId = Long.parseLong(request.getParameter("corso"));
 		corsista.setIdCorsista(id);
 		corsista.setNomeCorsista(nome);
