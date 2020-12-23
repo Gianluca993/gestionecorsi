@@ -16,7 +16,7 @@
 <div class="container my-3">
 
 <div class="col-md-5">
-<select class="form-control" id="orderby">
+<select class="form-control" id="orderby" onchange="this.form.submit()">
       <option>Numero corsisti</option>
       <option>Data Inizio</option>
       <option>Durata Corso</option>
