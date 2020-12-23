@@ -26,7 +26,7 @@
 		<jsp:include page="nav.jsp"/>
 		<div class="container">
 			<div class="page-header">
-				<h2>Modifica dati <span class="glyphicon glyphicon-cog"></span></h2>
+				<h2>Modifica dati Corsista <span class="glyphicon glyphicon-cog"></span></h2>
 			</div>
 			<%
 				Connection conn = DBAccess.getConnection();
