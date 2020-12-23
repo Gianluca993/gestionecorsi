@@ -16,16 +16,17 @@
 <div class="container my-3">
 
 <div class="col-md-5">
-<select class="form-control" id="orderby" onchange="this.form.submit()">
-      <option>Numero corsisti</option>
-      <option>Data Inizio</option>
-      <option>Durata Corso</option>
-      <option>Numero Commenti</option>
-      <option>Docente</option>
-      <option>Corsi disponibili</option>
+<form method="get" action="#">
+<select class="form-control" name ="stat" id="orderby" onchange="this.form.submit()">
+      <option value="numcor">Numero corsisti</option>
+      <option value="datin">Data Inizio</option>
+      <option value="durco">Durata Corso</option>
+      <option value="numcom">Numero Commenti</option>
+      <option value="docen">Docente</option>
+      <option value="dispcor">Corsi disponibili</option>
     </select>
 
-
+</form>
 </div>
 
 
