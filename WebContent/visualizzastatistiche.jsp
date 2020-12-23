@@ -49,11 +49,11 @@
 
 		<%
 			if (stat == null || stat.equals("numcor")) {
-			int numeroCors = AdminFacade.getInstance().getAllCorsisti().length;
+				int numeroCors = AdminFacade.getInstance().getAllCorsisti().length;
 		%>
 
 		<div class=col-md-12>
-			<table class="table">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th scope="col">Numero corsisti</th>
@@ -71,10 +71,10 @@
 
 		<%
 			} else if (stat.equals("datin")) {
-		Corso c = AdminFacade.getInstance().getDataUltimoCorso();
+				Corso c = AdminFacade.getInstance().getDataUltimoCorso();
 		%>
 		<div class=col-md-12>
-			<table class="table">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th scope="col">Nome Corso</th>
@@ -104,7 +104,7 @@
 				double durata = AdminFacade.getInstance().getDurataMediaCorsi();
 		%>
 		<div class=col-md-12>
-			<table class="table">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th scope="col">Durata media corsi</th>
@@ -113,7 +113,7 @@
 				<tbody>
 
 					<tr>
-						<td><%= durata %></td>
+						<td><%= durata %>H</td>
 					</tr>
 				</tbody>
 			</table>
@@ -123,7 +123,7 @@
 			} else if (stat.equals("numcom")) {
 		%>
 		<div class=col-md-12>
-			<table class="table">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th scope="col">Numero commenti ai corsi</th>
@@ -140,10 +140,11 @@
 		</div>
 		<%
 			} else if (stat.equals("docen")) {
-				Docente docente = AdminFacade.getInstance().getDocenteById(1);
+				Docente docente = AdminFacade.getInstance().getDocentePiuFormati();
+				if(docente != null) {
 		%>
 		<div class=col-md-12>
-			<table class="table">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th scope="col">Nome docente</th>
@@ -163,10 +164,12 @@
 
 		</div>
 		<%
+				}
 			} else {
+				Corso[] corsiDisp = AdminFacade.getInstance().getCorsiDisponibili();
 		%>
 		<div class=col-md-12>
-			<table class="table">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th scope="col">Nome Corso</th>
@@ -175,18 +178,26 @@
 						<th scope="col">Costo Corso</th>
 						<th scope="col">Commenti Corso</th>
 						<th scope="col">Aula Corso</th>
+						<th scope="col">Numero Iscritti</th>
 					</tr>
 				</thead>
 				<tbody>
-
+					<% 
+						for(Corso c : corsiDisp) {
+							int numeroIscritti = AdminFacade.getInstance().getCorsoCorsistaByCorsoId(c.getIdCorso()).length;
+					%>
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td><%= c.getNomeCorso() %></td>
+						<td><%= c.getDataInizio() %></td>
+						<td><%= c.getDataFine() %></td>
+						<td><%= c.getCosto() %></td>
+						<td><%= c.getCommentiCorso() %></td>
+						<td><%= c.getAulaCorso() %></td>
+						<td><%= numeroIscritti %>/12</td>
 					</tr>
+					<%
+						}
+					%>
 				</tbody>
 			</table>
 		</div>

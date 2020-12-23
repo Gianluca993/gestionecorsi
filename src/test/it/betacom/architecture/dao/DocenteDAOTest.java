@@ -38,8 +38,8 @@ class DocenteDAOTest {
 	void testGetDocenteByCV() throws SQLException, ClassNotFoundException, IOException {
 		DocenteDAO docenteDAO = DocenteDAO.getFactory();
 		conn = DBAccess.getConnection();
-		long idDoc = docenteDAO.getDocenteByCorsi(conn);
-		System.out.println("ID del docente: " + idDoc);
+		Docente doc = docenteDAO.getDocenteByCorsi(conn);
+		System.out.println("ID del docente: " + doc.getIdDocente());
 	}
 
 }

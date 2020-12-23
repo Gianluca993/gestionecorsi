@@ -14,7 +14,7 @@ public interface DAOConstants {
 	String CV_DOCENTE="select cv_docente from docenti where id_docente=?";
 	String CORSO_MAXFREQ="select * from (select id_corso ,count(id_corsista) as conteggio from corsi_corsisti, corsi where corsi_corsisti.id_corso=corsi.id_corso group by id_corso order by conteggio desc) where rownum <=1";
 	
-	String CORSI_POSTI_LIBERI="select id_corso ,count(id_corsista) as conteggio from corsi_corsisti, corsi where corsi_corsisti.id_corso=corsi.id_corso  group by id_corso having count(id_corsista) < 12";
+	String CORSI_POSTI_LIBERI="select corsi_corsisti.id_corso ,count(id_corsista) as conteggio from corsi_corsisti, corsi where corsi_corsisti.id_corso=corsi.id_corso  group by corsi.id_corso having count(id_corsista) < 12";
 	
 	//INSERT
 	String INSERT_DOC="insert into docenti values(?,?,?,?)";

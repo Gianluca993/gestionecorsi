@@ -2,7 +2,6 @@ package it.betacom.architecture.dao;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -63,11 +62,13 @@ public class DocenteDAO extends AdapterDocenteDAO{
 		int counter = 0;
 		Docente doc = null;
 		Docente[] docenti = this.getAll(conn);
-		
+		FileReader fr;
+		BufferedReader br;
 		for(Docente d: docenti) {
 			File file = new File(d.getCvDocente());
-			FileReader fr=new FileReader(file);
-			BufferedReader br=new BufferedReader(fr);
+			if(file.exists()) {
+			fr=new FileReader(file);
+			br=new BufferedReader(fr);
 			String riga;
 			counter = 0;
 			while((riga=br.readLine())!=null) {  
@@ -79,6 +80,7 @@ public class DocenteDAO extends AdapterDocenteDAO{
 			}
 			br.close();
 			fr.close();
+			}
 		}
 		return doc;
 	}
