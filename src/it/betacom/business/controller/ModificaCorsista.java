@@ -20,7 +20,8 @@ import it.betacom.business.model.CorsoCorsista;
 public class ModificaCorsista extends HttpServlet {
 	private static final long serialVersionUID = -1732386572633584297L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		Corsista corsista = new Corsista();
 		long id = Long.parseLong(request.getParameter("idCorsista"));
 		String nome = request.getParameter("nome");
@@ -34,7 +35,7 @@ public class ModificaCorsista extends HttpServlet {
 		try {
 			CorsoCorsista lastCorso = AdminFacade.getInstance().getLastCorsoCorsistaByCorsistaId(id);
 			AdminFacade.getInstance().updateCorsista(corsista);
-			if(lastCorso != null && lastCorso.getIdCorso() == corsoId) {
+			if(lastCorso == null || lastCorso.getIdCorso() != corsoId) {
 				CorsoCorsista newCorso = new CorsoCorsista();
 				newCorso.setIdCorso(corsoId);
 				newCorso.setIdCorsista(id);
