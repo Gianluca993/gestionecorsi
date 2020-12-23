@@ -3,7 +3,6 @@ package it.betacom.business;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import it.betacom.architecture.dao.CorsoDAO;
 import it.betacom.business.model.Admin;
 import it.betacom.business.model.Corsista;
 import it.betacom.business.model.Corso;
