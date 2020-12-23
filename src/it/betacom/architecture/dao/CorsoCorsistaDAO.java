@@ -89,4 +89,17 @@ public class CorsoCorsistaDAO extends AdapterCorsoCorsistaDAO {
 		list.toArray(cor);
 		return cor;
 	}
+	
+	public CorsoCorsista getLastByCorsistaId(Connection conn, long corsistaId) throws SQLException {
+		CorsoCorsista cC = null;
+		PreparedStatement ps = conn.prepareStatement(CORSOCORSISTA_CORSISTAID);
+		ps.setLong(1, corsistaId);
+		ResultSet rs = ps.executeQuery();
+		if(rs.next()) {
+			cC = new CorsoCorsista();
+			cC.setIdCorso(rs.getLong(1));
+			cC.setIdCorsista(corsistaId);
+		}
+		return cC;
+	}
 }

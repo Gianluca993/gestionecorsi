@@ -74,6 +74,9 @@ public class AdminFacade {
 	}
 	
 	// CORSO-CORSISTA
+	public CorsoCorsista getLastCorsoCorsistaByCorsistaId(long id) throws SQLException {
+		return corsoCorsistaBC.getLastByCorsistaId(id);
+	}
 	public CorsoCorsista[] getCorsoCorsistaByCorsoId(long id) throws SQLException {
 		return corsoCorsistaBC.getByCorsoId(id);
 	}
