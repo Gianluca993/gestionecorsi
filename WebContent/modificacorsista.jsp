@@ -35,6 +35,7 @@
 			%>
 			<form action="/<%= application.getServletContextName() %>/modificacorsista" class="form-horizontal"
 				method="post" id="FormCorsista">
+				<input type="hidden" name="idCorsista" value="<%= corsista.getIdCorsista() %>">
 				<div class="form-group">
 					<label for="nome_corsista">Nome Corsista</label> <input type="text"
 						class="form-control" id="Nomecorsista" name="nome"
@@ -48,7 +49,7 @@
 				<div class="form-group">
 					<label for="precformativi">Precedenti formativi</label> <input
 						type="checkbox" class="form-control" name="prec"
-						id="precformativi" value= "<%= corsista.isPrecFormativi() %>" >
+						id="precformativi" value= "1" <%= corsista.isPrecFormativi() ? "checked" : "" %>>
 				</div>
 				<div class="form-group">
 					<label for="corso_corsista">Corso:</label> 
