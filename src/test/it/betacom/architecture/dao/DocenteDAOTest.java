@@ -23,5 +23,23 @@ class DocenteDAOTest {
 		System.out.println(docente.toString());
 
 	}
+	
+	@Test
+	void testGetAll() throws ClassNotFoundException, SQLException, IOException {
+		DocenteDAO docenteDAO = DocenteDAO.getFactory();
+		conn = DBAccess.getConnection();
+		Docente[] docenti = docenteDAO.getAll(conn);
+		for(Docente d : docenti) {
+			System.out.println("DOCENTE: " + d.toString());
+		}
+	}
+	
+	@Test
+	void testGetDocenteByCV() throws SQLException, ClassNotFoundException, IOException {
+		DocenteDAO docenteDAO = DocenteDAO.getFactory();
+		conn = DBAccess.getConnection();
+		long idDoc = docenteDAO.getDocenteByCorsi(conn);
+		System.out.println("ID del docente: " + idDoc);
+	}
 
 }

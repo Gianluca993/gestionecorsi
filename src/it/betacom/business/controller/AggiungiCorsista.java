@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.betacom.business.AdminFacade;
 import it.betacom.business.model.Corsista;
+import it.betacom.business.model.CorsoCorsista;
 
 /**
  * Servlet implementation class AggiungiCorsista
@@ -27,8 +28,15 @@ public class AggiungiCorsista extends HttpServlet {
 		corsista.setNomeCorsista(nome);
 		corsista.setCognomeCorsista(cognome);
 		corsista.setPrecFormativi(prec);
+		
+		CorsoCorsista cc = new CorsoCorsista();
+		cc.setIdCorso(Long.parseLong(request.getParameter("corso")));
 		try {
 			AdminFacade.getInstance().createCorsista(corsista);
+			long idCorsista = corsista.getIdCorsista();
+			cc.setIdCorsista(idCorsista);
+			AdminFacade.getInstance().createCorsoCorsista(cc);
+			
 			response.sendRedirect("listacorsi.jsp");
 		} catch (ClassNotFoundException | SQLException | IOException e) {
 			e.printStackTrace();

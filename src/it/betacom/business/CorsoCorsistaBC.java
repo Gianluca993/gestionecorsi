@@ -16,6 +16,9 @@ public class CorsoCorsistaBC {
 	public CorsoCorsistaBC() throws SQLException, ClassNotFoundException, IOException {
 		conn = DBAccess.getConnection();
 	}
+	public CorsoCorsista getLastByCorsistaId(long id) throws SQLException {
+		return CorsoCorsistaDAO.getFactory().getLastByCorsistaId(conn, id);
+	}
 	
 	public CorsoCorsista[] getByCorsoId(long id) throws SQLException {
 		return CorsoCorsistaDAO.getFactory().getByCorsoId(conn, id);
