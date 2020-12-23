@@ -30,12 +30,8 @@
 			<%
 				Connection conn = DBAccess.getConnection();
 				Corsista corsista = AdminFacade.getInstance().getCorsistaById(Long.parseLong(request.getParameter("idCorsista")));
-				CorsoCorsista corsiCorsisti[] = AdminFacade.getInstance().getCorsoCorsistaByCorsistaId(Long.parseLong(request.getParameter("idCorsista")));
+				CorsoCorsista corsoCorsista = AdminFacade.getInstance().getLastCorsoCorsistaByCorsistaId(Long.parseLong(request.getParameter("idCorsista")));
 				SimpleDateFormat sf = new SimpleDateFormat("dd/MM/yyyy");
-				CorsoCorsista corsoCorsista = null;
-				for(CorsoCorsista c : corsiCorsisti){
-					if(c.getIdCorso()==)
-				}
 			%>
 			<form action="/<%= application.getServletContextName() %>/modificacorsista" class="form-horizontal"
 				method="post" id="FormCorsista">
