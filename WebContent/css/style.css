@@ -9,7 +9,6 @@ body{
 	background-color: #F9F9F9;
 }
 
-
 footer {
 	position: relative;
 	bottom: 0;
@@ -17,6 +16,7 @@ footer {
 	height: 250px;
 	background-color: #343A40;
 	color: white;
+	margin-top:150px;
 }
 
 @media screen and (max-width: 730px){
