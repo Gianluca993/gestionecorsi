@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import it.betacom.architecture.dao.CorsoDAO;
 import it.betacom.architecture.dao.DBAccess;
+import it.betacom.architecture.dao.DocenteDAO;
 import it.betacom.business.model.Corso;
 
 public class StatsBC {
@@ -46,8 +47,8 @@ public class StatsBC {
 	}
 	
 	// DOCENTI
-	public void getDocentiPiuFormati() {
-		
+	public long getDocentePiuFormati() throws SQLException, IOException {
+		return DocenteDAO.getFactory().getDocenteByCorsi(conn);
 	}
 	
 }
