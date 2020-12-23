@@ -19,12 +19,14 @@ public class EliminaCorsista extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		long id = Long.parseLong(request.getParameter("id"));
+		System.out.println("ID del corsista: " + id);
 		try {
 			AdminFacade.getInstance().deleteCorsista(id);
 		} catch (ClassNotFoundException | SQLException | IOException e) {
 			e.printStackTrace();
 			throw new ServletException(e.getMessage());
 		}
+		response.sendRedirect("daticorsisti.jsp");
 	}
 
 }
