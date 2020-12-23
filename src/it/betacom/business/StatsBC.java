@@ -4,9 +4,11 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import it.betacom.architecture.dao.CorsistaDAO;
 import it.betacom.architecture.dao.CorsoDAO;
 import it.betacom.architecture.dao.DBAccess;
 import it.betacom.architecture.dao.DocenteDAO;
+import it.betacom.business.model.Corsista;
 import it.betacom.business.model.Corso;
 
 public class StatsBC {
@@ -38,12 +40,13 @@ public class StatsBC {
 	}
 	
 	// CORSISTI
-	public void getConteggioCorsisti() {
-		
+	public int getConteggioCorsisti() throws SQLException {
+		Corsista[] corsisti = CorsistaDAO.getFactory().getAll(conn);
+		return corsisti.length;
 	}
 	
-	public void getElencoCorsisti() {
-		
+	public Corsista[] getElencoCorsisti() throws SQLException {
+		return CorsistaDAO.getFactory().getAll(conn);
 	}
 	
 	// DOCENTI
