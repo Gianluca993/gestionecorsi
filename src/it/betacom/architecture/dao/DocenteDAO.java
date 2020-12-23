@@ -5,11 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.sql.rowset.CachedRowSet;
-import javax.sql.rowset.RowSetProvider;
-
 import it.betacom.architecture.dao.adapter.AdapterDocenteDAO;
-import it.betacom.business.model.Admin;
 import it.betacom.business.model.Docente;
 
 public class DocenteDAO extends AdapterDocenteDAO{
