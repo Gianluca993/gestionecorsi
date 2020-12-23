@@ -14,7 +14,7 @@
 	<jsp:include page="nav.jsp" />
 
 
-	<div class="container-fluid align-context-center">
+	<div class="container-fluid align-content-center">
 		<h1>Inserisci corsista</h1>
 		<div class=col-md-4>
 			<form
