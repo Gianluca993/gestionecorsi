@@ -11,7 +11,7 @@
 	String cognome = (String)session.getAttribute("cognome");
 	if(cognome == null){
 		response.sendRedirect("accessonegato.jsp");
-	} else {
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -71,6 +71,3 @@
 		<footer class="footer"><%@include file="footer.html" %></footer>
 	</body>
 </html>
-<%
-	}
-%>
