@@ -16,9 +16,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
+			<link rel="stylesheet" href="css/style.css">
 		<%@include file="CDN.html" %>
 		<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-		<link rel="stylesheet" href="css/style.css">
+
 		<title>Modifica Corsista</title>
 	</head>
 	<body>
