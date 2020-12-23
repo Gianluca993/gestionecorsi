@@ -6,7 +6,7 @@ html{
 body{
 	margin-top:50px;
 	margin-bottom: 300px;
-	background-color: #F9F9F9;
+	background-color: white;
 }
 
 footer {
@@ -16,7 +16,7 @@ footer {
 	height: 250px;
 	background-color: #343A40;
 	color: white;
-	margin-top:150px;
+	margin-top:250px;
 }
 
 @media screen and (max-width: 730px){
@@ -85,3 +85,10 @@ p.copyright{
 	width:150px;
 	height:150px;
 }
+
+
+.container{
+	margin-top:25px;
+}
+
+

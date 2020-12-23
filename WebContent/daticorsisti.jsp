@@ -23,8 +23,8 @@
 
 <div class="container mt-4 corsistilist" >
 <div class=col-md-12>
-<table class="table">
-  <thead>
+<table class="table table-hover table-striped">
+  <thead class="thead-dark">
     <tr>
       <th scope="col">Id corsista</th>
       <th scope="col">Nome corsista</th>
@@ -67,8 +67,8 @@
 
 
 <div class="container mt-2">
-<a href="inseriscicorsista.jsp"><button type="submit" class="btn btn-info">Inserisci corsista</button></a>
-<a href="visualizzastatistiche.jsp"><button type="submit" class="btn btn-success">Visualizza Statistiche</button></a>
+<a href="inseriscicorsista.jsp" style="margin-right:5px;"><button type="submit" class="btn btn-info">Inserisci corsista</button></a>
+<a href="visualizzastatistiche.jsp" style="margin-right:5px;"><button type="submit" class="btn btn-success">Visualizza Statistiche</button></a>
 <a href="listacorsi.jsp"><button class="btn btn-danger">Elimina Corso</button></a>
 </div>
 
