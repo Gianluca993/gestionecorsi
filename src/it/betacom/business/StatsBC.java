@@ -10,6 +10,7 @@ import it.betacom.architecture.dao.DBAccess;
 import it.betacom.architecture.dao.DocenteDAO;
 import it.betacom.business.model.Corsista;
 import it.betacom.business.model.Corso;
+import it.betacom.business.model.Docente;
 
 public class StatsBC {
 	Connection conn;
@@ -50,7 +51,7 @@ public class StatsBC {
 	}
 	
 	// DOCENTI
-	public long getDocentePiuFormati() throws SQLException, IOException {
+	public Docente getDocentePiuFormati() throws SQLException, IOException {
 		return DocenteDAO.getFactory().getDocenteByCorsi(conn);
 	}
 	

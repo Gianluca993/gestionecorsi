@@ -1,73 +1,200 @@
+<%@page import="it.betacom.business.model.Docente"%>
+<%@page import="it.betacom.business.model.Corso"%>
+<%@page import="it.betacom.business.AdminFacade"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%
+	String stat = request.getParameter("stat");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<jsp:useBean id="carrello"
-	class="it.betacom.business.controller.Login" scope="session" />
+<jsp:useBean id="carrello" class="it.betacom.business.controller.Login"
+	scope="session" />
 <link rel="stylesheet" href="css/style.css">
 <%@include file="CDN.html"%>
 <title>Dati Corsisti</title>
 </head>
 <body>
-<jsp:include page="nav.jsp" />
+	<jsp:include page="nav.jsp" />
 
-<div class="container my-3">
+	<div class="container my-3">
 
-<div class="col-md-5">
-<form method="get" action="#">
-<select class="form-control" name ="stat" id="orderby" onchange="this.form.submit()">
-      <option value="numcor">Numero corsisti</option>
-      <option value="datin">Data Inizio</option>
-      <option value="durco">Durata Corso</option>
-      <option value="numcom">Numero Commenti</option>
-      <option value="docen">Docente</option>
-      <option value="dispcor">Corsi disponibili</option>
-    </select>
+		<div class="col-md-5">
+			<form method="get" action="#">
+				<select class="form-control" name="stat" id="orderby"
+					onchange="this.form.submit()">
+					<option value="numcor"
+						<%=stat.equals("numcor") ? "selected" : ""%>>Numero
+						corsisti</option>
+					<option value="datin" <%=stat.equals("datin") ? "selected" : ""%>>Data
+						Inizio</option>
+					<option value="durco" <%=stat.equals("durco") ? "selected" : ""%>>Durata
+						Corso</option>
+					<option value="numcom"
+						<%=stat.equals("numcom") ? "selected" : ""%>>Numero
+						Commenti</option>
+					<option value="docen" <%=stat.equals("docen") ? "selected" : ""%>>Docente</option>
+					<option value="dispcor"
+						<%=stat.equals("dispcor") ? "selected" : ""%>>Corsi
+						disponibili</option>
+				</select>
 
-</form>
-</div>
+			</form>
+		</div>
 
+	</div>
+	<div class="container mt-4">
 
-</div>
-<div class="container mt-4">
-<div class=col-md-12>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Numero corsisti</th>
-      <th scope="col">Data Inizio</th>
-      <th scope="col">Durata Corso</th>
-      <th scope="col">Numero commenti</th>
-      <th scope="col">Più corsi per Docente</th>
-      <th scope="col">Corsi disponibili</th>
-      <th scope="col">Corsisti </th>
-    </tr>
-  </thead>
-  <tbody>
-   
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+		<%
+			if (stat == null || stat.equals("numcor")) {
+			int numeroCors = AdminFacade.getInstance().getAllCorsisti().length;
+		%>
 
-</div>
-</div>
+		<div class=col-md-12>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Numero corsisti</th>
+					</tr>
+				</thead>
+				<tbody>
 
+					<tr>
+						<td><%=numeroCors%></td>
+					</tr>
+				</tbody>
+			</table>
 
+		</div>
 
+		<%
+			} else if (stat.equals("datin")) {
+		Corso c = AdminFacade.getInstance().getDataUltimoCorso();
+		%>
+		<div class=col-md-12>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Nome Corso</th>
+						<th scope="col">Inizio Corso</th>
+						<th scope="col">Fine Corso</th>
+						<th scope="col">Costo Corso</th>
+						<th scope="col">Commenti Corso</th>
+						<th scope="col">Aula Corso</th>
+					</tr>
+				</thead>
+				<tbody>
 
+					<tr>
+						<td><%=c.getNomeCorso()%></td>
+						<td><%=c.getDataInizio()%></td>
+						<td><%=c.getDataFine()%></td>
+						<td><%=c.getCosto()%></td>
+						<td><%=c.getCommentiCorso()%></td>
+						<td><%=c.getAulaCorso()%></td>
+					</tr>
+				</tbody>
+			</table>
 
+		</div>
+		<%
+			} else if (stat.equals("durco")) {
+				double durata = AdminFacade.getInstance().getDurataMediaCorsi();
+		%>
+		<div class=col-md-12>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Durata media corsi</th>
+					</tr>
+				</thead>
+				<tbody>
 
+					<tr>
+						<td><%= durata %></td>
+					</tr>
+				</tbody>
+			</table>
 
-<footer class="footer"><%@include file="footer.html" %></footer>
+		</div>
+		<%
+			} else if (stat.equals("numcom")) {
+		%>
+		<div class=col-md-12>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Numero commenti ai corsi</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+		<%
+			} else if (stat.equals("docen")) {
+				Docente docente = AdminFacade.getInstance().getDocenteById(1);
+		%>
+		<div class=col-md-12>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Nome docente</th>
+						<th scope="col">Cognome docente</th>
+						<th scope="col">Corsi papabili</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr>
+						<td><%= docente.getNomeDocente() %><td>
+						<td><%= docente.getCognomeDocente() %></td>
+						<td><%= docente.getCvDocente() %></td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+		<%
+			} else {
+		%>
+		<div class=col-md-12>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Nome Corso</th>
+						<th scope="col">Inizio Corso</th>
+						<th scope="col">Fine Corso</th>
+						<th scope="col">Costo Corso</th>
+						<th scope="col">Commenti Corso</th>
+						<th scope="col">Aula Corso</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<%
+			}
+		%>
+	</div>
+
+	<footer class="footer"><%@include file="footer.html"%></footer>
 </body>
 </html>

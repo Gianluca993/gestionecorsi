@@ -58,10 +58,10 @@ public class DocenteDAO extends AdapterDocenteDAO{
 		return docenti;
 	}
 	
-	public long getDocenteByCorsi (Connection conn) throws SQLException, IOException {
+	public Docente getDocenteByCorsi (Connection conn) throws SQLException, IOException {
 		int counterDoc = 0;
 		int counter = 0;
-		long idDoc = 0;
+		Docente doc = null;
 		Docente[] docenti = this.getAll(conn);
 		
 		for(Docente d: docenti) {
@@ -75,11 +75,11 @@ public class DocenteDAO extends AdapterDocenteDAO{
 				}
 			if(counter > counterDoc) {
 				counterDoc = counter;
-				idDoc = d.getIdDocente();
+				doc = d;
 			}
 			br.close();
 			fr.close();
 		}
-		return idDoc;
+		return doc;
 	}
 }

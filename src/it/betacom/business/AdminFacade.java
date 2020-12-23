@@ -3,6 +3,7 @@ package it.betacom.business;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import it.betacom.architecture.dao.CorsistaDAO;
 import it.betacom.business.model.Admin;
 import it.betacom.business.model.Corsista;
 import it.betacom.business.model.Corso;
@@ -110,5 +111,17 @@ public class AdminFacade {
 	
 	public Corso[] getCorsiDisponibili() throws SQLException {
 		return statsBC.getCorsiDisponibili();
+	}
+		// CORSISTI
+	public int getConteggioCorsisti() throws SQLException {
+		return statsBC.getConteggioCorsisti();
+	}
+	
+	public Corsista[] getElencoCorsisti() throws SQLException {
+		return statsBC.getElencoCorsisti();
+	}
+		//DOCENTI
+	public Docente getDocentePiuFormati() throws SQLException, IOException {
+		return statsBC.getDocentePiuFormati();
 	}
 }
