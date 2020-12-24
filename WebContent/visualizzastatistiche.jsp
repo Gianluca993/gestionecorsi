@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="it.betacom.business.model.Docente"%>
 <%@page import="it.betacom.business.model.Corso"%>
 <%@page import="it.betacom.business.AdminFacade"%>
@@ -5,6 +6,7 @@
 	pageEncoding="ISO-8859-1"%>
 	 <%@include file="logincheck.jsp"%>
 <%
+	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 	String stat = request.getParameter("stat");
 	if(stat == null) {
 		stat = "numcor";
@@ -30,19 +32,19 @@
 				<select class="form-control" name="stat" id="orderby"
 					onchange="this.form.submit()">
 					<option value="numcor"
-						<%=stat.equals("numcor") ? "selected" : ""%>>Numero
+						<%=stat.equals("numcor") ? "selected" : ""%>>Numero totale di
 						corsisti</option>
-					<option value="datin" <%=stat.equals("datin") ? "selected" : ""%>>Data
-						Inizio</option>
+					<option value="datin" <%=stat.equals("datin") ? "selected" : ""%>>Data di
+						inizio dell'ultimo corso</option>
 					<option value="durco" <%=stat.equals("durco") ? "selected" : ""%>>Durata
-						Corso</option>
+						media dei corsi</option>
 					<option value="numcom"
 						<%=stat.equals("numcom") ? "selected" : ""%>>Numero
-						Commenti</option>
-					<option value="docen" <%=stat.equals("docen") ? "selected" : ""%>>Docente</option>
+						di commenti presenti</option>
+					<option value="docen" <%=stat.equals("docen") ? "selected" : ""%>>Docente che può tenere più corsi</option>
 					<option value="dispcor"
 						<%=stat.equals("dispcor") ? "selected" : ""%>>Corsi
-						disponibili</option>
+						con posti disponibili</option>
 				</select>
 
 			</form>
@@ -93,9 +95,9 @@
 
 					<tr>
 						<td><%=c.getNomeCorso()%></td>
-						<td><%=c.getDataInizio()%></td>
-						<td><%=c.getDataFine()%></td>
-						<td><%=c.getCosto()%></td>
+						<td><%=formato.format(c.getDataInizio())%></td>
+						<td><%=formato.format(c.getDataFine())%></td>
+						<td><%=c.getCosto()%>&euro;</td>
 						<td><%=c.getCommentiCorso()%></td>
 						<td><%=c.getAulaCorso()%></td>
 					</tr>
@@ -117,7 +119,7 @@
 				<tbody>
 
 					<tr>
-						<td><%= durata %>H</td>
+						<td><%= durata %>h</td>
 					</tr>
 				</tbody>
 			</table>
@@ -192,9 +194,9 @@
 					%>
 					<tr>
 						<td><%= c.getNomeCorso() %></td>
-						<td><%= c.getDataInizio() %></td>
-						<td><%= c.getDataFine() %></td>
-						<td><%= c.getCosto() %></td>
+						<td><%=formato.format(c.getDataInizio())%></td>
+						<td><%=formato.format(c.getDataFine())%></td>
+						<td><%= c.getCosto() %>&euro;</td>
 						<td><%= c.getCommentiCorso() %></td>
 						<td><%= c.getAulaCorso() %></td>
 						<td><%= numeroIscritti %>/12</td>
