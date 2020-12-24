@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@page import="it.betacom.business.AdminFacade" %>
 <%@page import="it.betacom.business.model.Corso" %>
+ <%@include file="logincheck.jsp"%>
  <% Corso corsi[] = AdminFacade.getInstance().getAllCorsi(); %>
 <!DOCTYPE html>
 <html>

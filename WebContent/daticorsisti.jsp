@@ -8,6 +8,7 @@
  <% 
  	Corsista corsisti[] = AdminFacade.getInstance().getAllCorsisti(); 
  %>
+ <%@include file="logincheck.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>

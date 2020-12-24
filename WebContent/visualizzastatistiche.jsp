@@ -3,6 +3,7 @@
 <%@page import="it.betacom.business.AdminFacade"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	 <%@include file="logincheck.jsp"%>
 <%
 	String stat = request.getParameter("stat");
 	if(stat == null) {
