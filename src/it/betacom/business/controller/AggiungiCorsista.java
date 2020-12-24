@@ -24,7 +24,7 @@ public class AggiungiCorsista extends HttpServlet {
 		Corsista corsista = new Corsista();
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
-		boolean prec = Integer.parseInt(request.getParameter("prec")) == 1;
+		boolean prec = request.getParameter("prec") != null;
 		corsista.setNomeCorsista(nome);
 		corsista.setCognomeCorsista(cognome);
 		corsista.setPrecFormativi(prec);
