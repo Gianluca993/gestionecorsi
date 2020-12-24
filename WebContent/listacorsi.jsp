@@ -11,16 +11,17 @@
 	class="it.betacom.business.controller.Login" scope="session" />
 <link rel="stylesheet" href="css/style.css">
 <%@include file="CDN.html"%>
-<title>Dati Corsisti</title>
+<title>Lista Corsi</title>
 </head>
 <body>
 <jsp:include page="nav.jsp" />
 
 
-<div class="container mt-4 mb-2">
-<div class=col-md-12>
-<table class="table">
-  <thead>
+<div class="container mt-4 mb-2 d-flex justify-content-center">
+<div class="col-sm-12">
+
+<table class="table table-striped table-dark table-hover mt-5">
+  <thead class=" thead-dark">
     <tr>
       <th scope="col">Id Corso</th>
       <th scope="col">Nome Corso</th>

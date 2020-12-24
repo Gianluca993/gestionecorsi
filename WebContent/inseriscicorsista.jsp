@@ -14,9 +14,10 @@
 	<jsp:include page="nav.jsp" />
 
 
-	<div class="container-fluid align-content-center">
-		<h1>Inserisci corsista</h1>
+	<div class="container-fluid d-flex justify-content-center">
+		
 		<div class=col-md-4>
+		<h1 class="mx-5 mt-3">Inserisci corsista</h1>
 			<form
 				action="/<%=application.getServletContextName()%>/aggiungicorsista"
 				class="form-horizontal" method="post" id="corsistaForm">

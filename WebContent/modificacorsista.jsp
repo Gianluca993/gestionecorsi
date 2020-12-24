@@ -24,7 +24,8 @@
 	</head>
 	<body>
 		<jsp:include page="nav.jsp"/>
-		<div class="container">
+		<div class="container d-flex justify-content-center">
+		<div class="col-md-8">
 			<div class="page-header">
 				<h2>Modifica dati Corsista <span class="glyphicon glyphicon-cog"></span></h2>
 			</div>
@@ -76,6 +77,7 @@
 				</div>
 				<button type="submit" class="btn btn-warning">Modifica</button>
 			</form>
+			</div>
 		</div>
 		<footer class="footer"><%@include file="footer.html" %></footer>
 	</body>

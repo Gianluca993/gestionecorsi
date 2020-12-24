@@ -17,8 +17,9 @@
 <jsp:include page="nav.jsp" />
 
 
-<div class="container align-content-center">
-<div class=col-md-4>
+<div class="container d-flex justify-content-center ">
+
+<div class="col-md-4 mt-3">
 <form action="/<%=application.getServletContextName()%>/login"
 			class="form-horizontal" method="post" id="adminForm">
   <div class="form-group">
