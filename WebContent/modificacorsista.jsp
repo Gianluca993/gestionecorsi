@@ -24,7 +24,7 @@
 	</head>
 	<body>
 		<jsp:include page="nav.jsp"/>
-		<div class="container d-flex justify-content-center">
+		<div class="container">
 		<div class="col-md-8">
 			<div class="page-header">
 				<h2>Modifica dati Corsista <span class="glyphicon glyphicon-cog"></span></h2>
@@ -53,6 +53,8 @@
 						type="checkbox" class="form-control" name="prec"
 						id="precformativi" value= "1" <%= corsista.isPrecFormativi() ? "checked" : "" %>>
 				</div>
+				
+				
 				<div class="form-group">
 					<label for="corso_corsista">Corso:</label> 
 					<select id="corso_corsista" name="corso" class="custom-select" multiple>
