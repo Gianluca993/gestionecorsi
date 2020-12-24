@@ -1,9 +1,13 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@page import="it.betacom.business.AdminFacade" %>
 <%@page import="it.betacom.business.model.Corso" %>
  <%@include file="logincheck.jsp"%>
- <% Corso corsi[] = AdminFacade.getInstance().getAllCorsi(); %>
+ <% 
+ 	Corso corsi[] = AdminFacade.getInstance().getAllCorsi(); 
+	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+ %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,9 +43,9 @@
     <tr>
       <td><%= c.getIdCorso() %></td>
       <td><%= c.getNomeCorso() %></td>
-      <td><%= c.getDataInizio() %></td>
-      <td><%= c.getDataFine() %></td>
-      <td><%= c.getCosto() %></td>
+      <td><%= formato.format(c.getDataInizio()) %></td>
+      <td><%= formato.format(c.getDataFine()) %></td>
+      <td><%= c.getCosto() %>&euro;</td>
       <td><%= c.getCommentiCorso() %></td>
       <td><%= c.getAulaCorso() %></td>
       <td>
