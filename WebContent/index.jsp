@@ -23,13 +23,13 @@
 <form action="/<%=application.getServletContextName()%>/login"
 			class="form-horizontal" method="post" id="adminForm">
   <div class="form-group">
-    <label for="id_admin">Id Admin</label>
+    <label for="id_admin" class="lognom">Id Admin</label>
     <input type="text" class="form-control" id="adaccess" name="id" placeholder="Enter Id" required>
   </div>
  
  
    <div class="form-group">
-    <label for="cognome_admin">Cognome Admin</label>
+    <label for="cognome_admin" class="lognom">Cognome Admin</label>
     <input type="text" class="form-control" id="cogadmin" name="cognome" placeholder="Enter Cognome" required>
   </div>
  

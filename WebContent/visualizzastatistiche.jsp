@@ -25,7 +25,7 @@
 
 	<div class="container my-3">
 
-		<div class="col-md-5">
+		<div class="col-md-5 ">
 			<form method="get" action="#">
 				<select class="form-control" name="stat" id="orderby"
 					onchange="this.form.submit()">

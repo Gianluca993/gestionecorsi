@@ -25,7 +25,7 @@
 <div class="container mt-5 corsistilist d-flex justify-content-center" >
 <div class=col-md-12>
 <table class="table table-hover table-striped text-light">
-  <thead class="thead-dark">
+  <thead>
     <tr>
       <th scope="col">Id corsista</th>
       <th scope="col">Nome corsista</th>
@@ -51,11 +51,11 @@
       <td><%= c.getNomeCorsista() %></td>
       <td> <%= c.getCognomeCorsista() %></td>
       <td> <%= last %></td>
-      <td><a href="modificacorsista.jsp?id=<%=c.getIdCorsista() %>"><button type="submit" class="btn btn-warning">Modifica</button></a></td>
+      <td><a href="modificacorsista.jsp?id=<%=c.getIdCorsista() %>"><button type="submit" class="btn btn-secondary">Modifica</button></a></td>
       <td>
 	      <form action="/<%=application.getServletContextName()%>/eliminacorsista" method="post">
 	      	<input type="hidden" name="id" value="<%= c.getIdCorsista() %>">
-	        <button type="submit" class="btn btn-danger">Elimina</button>
+	        <button type="submit" class="btn btn-primary">Elimina</button>
 	      </form>
      </td>
     </tr>
@@ -68,9 +68,9 @@
 
 
 <div class="container mt-4 d-flex justify-content-center">
-<a href="inseriscicorsista.jsp" style="margin-right:5px;"><button type="submit" class="btn btn-info">Inserisci corsista</button></a>
-<a href="visualizzastatistiche.jsp" style="margin-right:5px;"><button type="submit" class="btn btn-success">Visualizza Statistiche</button></a>
-<a href="listacorsi.jsp"><button class="btn btn-danger">Elimina Corso</button></a>
+<a href="inseriscicorsista.jsp" style="margin-right:5px;"><button type="submit" class="btn btn-primary">Inserisci corsista</button></a>
+<a href="visualizzastatistiche.jsp" style="margin-right:5px;"><button type="submit" class="btn btn-primary">Visualizza Statistiche</button></a>
+<a href="listacorsi.jsp"><button class="btn btn-primary">Elimina Corso</button></a>
 </div>
 
 

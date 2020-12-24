@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
 html{
 		position: relative;
 		min-height: 100%;
@@ -6,11 +8,23 @@ html{
 body{
 	margin-top:50px;
 	margin-bottom: 300px;
-	background-color:lightslategray!important;	
+	background-color:#3C3D7C!important;	
+}
+
+.menu{
+	background-color:#1F2041!important;
 }
 
 li {
 	list-style: none;
+}
+
+
+.lognom{
+	color:#F7F3F3;
+	font-size: 18px;
+	font-weight: bold;
+	font-family:'Oswald', sans-serif;
 }
 
 footer {
@@ -21,6 +35,7 @@ footer {
 	background-color: #343A40;
 	color: white;
 	margin-top:250px;
+	background-color:#1F2041!important
 }
 
 @media screen and (max-width: 730px){
@@ -40,12 +55,19 @@ footer {
 	}
 }  
 
-
+th,tr,label,h1,h2,h3{
+	color:white;
+}
 footer nav{
 	float:left;
 	padding: 30px;
 	color: white;
 }
+
+thead{
+	background-color:#1F2041!important;
+}
+
 
 footer section{
 	float:left;
@@ -61,7 +83,7 @@ footer a:visited{
 }
 
 footer a:hover{
-	color: green;
+	color:#A5402D!important;
 }
 
 p.copyright{
@@ -96,4 +118,38 @@ p.copyright{
 	margin-top:25px;
 }
 
+
+
+.btn-secondary{
+	background-color:#FFA31A!important;
+	color:#1f2041!important;
+}
+
+a{
+	color:#F7F3F3!important;
+}
+
+
+.btn-primary {
+	background-color:#A5402D!important;
+  color: white;
+  border-color: #e65c00!important;
+}
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #fff!important;
+  background-color: #e65c00!important;
+  border-color: #993d00!important;
+}
+.btn-primary:hover {
+  color: #fff!important;
+  background-color: #f06000!important;
+  border-color: #cc5200!important;
+}
+
+
+.btn-primary .badge {
+  color: #ff751a!important;
+  background-color: #fff!important;
+}
 

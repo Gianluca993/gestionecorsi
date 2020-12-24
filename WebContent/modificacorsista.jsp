@@ -77,7 +77,7 @@
 						%>
 					</select>
 				</div>
-				<button type="submit" class="btn btn-warning">Modifica</button>
+				<button type="submit" class="btn btn-secondary">Modifica</button>
 			</form>
 			</div>
 		</div>

@@ -21,8 +21,8 @@
 <div class="container mt-4 mb-2 d-flex justify-content-center">
 <div class="col-sm-12">
 
-<table class="table table-striped table-dark table-hover mt-5">
-  <thead class=" thead-dark">
+<table class="table table-striped table-hover mt-5">
+  <thead>
     <tr>
       <th scope="col">Id Corso</th>
       <th scope="col">Nome Corso</th>
@@ -47,7 +47,7 @@
       <td>
       <form action="/<%=application.getServletContextName()%>/eliminacorso"  method="post"> 
       <input type="hidden" name="idCorso" value="<%= c.getIdCorso() %>">
-      <button type="submit" class=" btn btn-danger"> Elimina Corso</button>
+      <button type="submit" class=" btn btn-primary"> Elimina Corso</button>
       </form>
       </td>
      
