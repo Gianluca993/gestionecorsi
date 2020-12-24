@@ -6,7 +6,11 @@ html{
 body{
 	margin-top:50px;
 	margin-bottom: 300px;
-	background-color:lightslategray!important;
+	background-color:lightslategray!important;	
+}
+
+li {
+	list-style: none;
 }
 
 footer {
