@@ -76,13 +76,13 @@ insert into docenti values(3,'Maggio','For','forurl');
 insert into docenti values(4,'Ben','Zina','benurl');
 --
 
-insert into corsi values(1,'JAVA','20-FEB-2020','21-MAR-2020', 127.00,'java corso',1,1);
-insert into corsi values(2,'GOLANG','22-MAR-2020','23-MAG-2020', 200.00,'golang corso',1,1);
+insert into corsi values(1,'JAVA','20-NOV-2020','21-MAR-2021', 127.00,'java corso',1,1);
+insert into corsi values(2,'GOLANG','22-MAR-2020','23-MAG-2021', 200.00,'golang corso',1,1);
 insert into corsi values(3,'RUBY','20-FEB-2020','22-APR-2020', 100.00,'ruby corso',2,2);
-insert into corsi values(4,'PYTHON','12-GEN-2020','14-MAR-2020', 127.00,'python corso',3,4);
+insert into corsi values(4,'PYTHON','12-GEN-2021','14-MAR-2021', 127.00,'python corso',3,4);
 insert into corsi values(5,'ARCHLINUX','23-LUG-2020','21-SET-2020', 300.00,'archlinux corso',5,3);
 insert into corsi values(6,'DOCKER','1-OTT-2020','21-DIC-2020', 220.00,'docker corso',6,3);
-insert into corsi values(7,'NMAP','12-GEN-2020','21-MAR-2020', 128.00,'nmap corso',7,2);
+insert into corsi values(7,'NMAP','12-DIC-2020','21-MAR-2021', 128.00,'nmap corso',7,2);
 insert into corsi values(8,'BASHSCRIPT','2-AGO-2020','21-SET-2020', 90.00,'bash corso',3,3);
 
 insert into corsisti values(1,'Bruno','Munari',0);

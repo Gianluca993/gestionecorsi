@@ -64,7 +64,7 @@
 							Corso[] corsi = AdminFacade.getInstance().getAllCorsi();
 							for(Corso c : corsi) {
 								int iscritti = AdminFacade.getInstance().getCorsoCorsistaByCorsoId(c.getIdCorso()).length;
-								if(iscritti < 12 && c.getDataFine().before(new Date())) {
+								if(iscritti < 12 && c.getDataFine().after(new Date())) {
 									if(corsoCorsista != null) {
 						%>
 <%-- 						<%if (corsoCorsista.getIdCorso()) %> --%>
