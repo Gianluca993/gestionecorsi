@@ -28,7 +28,7 @@ public interface DAOConstants {
 	String CORSO="select * from corsi where id_corso=?";
 	String ADMIN="select * from admin where id_admin=?";
 	String CORSICORSISTI_CORSOID="select * from corsi_corsisti where id_corso = ?";
-	String CORSICORSISTI_CORSISTAID="select * from corsi_corsisti where id_corsista = ?";
+	String CORSICORSISTI_CORSISTAID="select * from corsi_corsisti where id_corsista = ? order by (select data_fine from corsi where corsi.id_corso = corsi_corsisti.id_corso) desc";
 	String CORSOCORSISTA_CORSISTAID="select * from corsi_corsisti where id_corsista = ? and rownum = 1 order by SCN_TO_TIMESTAMP(ORA_ROWSCN) desc";
 	
 	//SELECT ALL

@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="it.betacom.business.model.CorsoCorsista"%>
 <%@page import="it.betacom.business.model.Corsista"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -231,7 +232,7 @@ if (stat == null) {
 											%>
 											<table class="table">
 												<tr>
-													<td colspan="2" style="text-align: center;"><h3><%=corso.getNomeCorso()%></h3></td>
+													<td colspan="2" style="text-align: center;"><h3 <%= corso.getDataFine().before(new Date()) ? "class='c-finito'" : "" %>><%=corso.getNomeCorso()%></h3></td>
 												</tr>
 												<tr>
 													<td>Data inizio corso:</td>

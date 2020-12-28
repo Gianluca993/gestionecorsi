@@ -38,6 +38,10 @@ footer {
 	background-color:#1F2041!important
 }
 
+.c-finito {
+	color: #A5402D;
+}
+
 @media screen and (max-width: 730px){
 	footer {
 		position: relative;
@@ -152,4 +156,3 @@ a{
   color: #ff751a!important;
   background-color: #fff!important;
 }
-
