@@ -25,19 +25,24 @@ public class AggiungiCorsista extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
 		boolean prec = request.getParameter("prec") != null;
+		long corsoId = Long.parseLong(request.getParameter("corso"));
 		corsista.setNomeCorsista(nome);
 		corsista.setCognomeCorsista(cognome);
 		corsista.setPrecFormativi(prec);
 		
 		CorsoCorsista cc = new CorsoCorsista();
-		cc.setIdCorso(Long.parseLong(request.getParameter("corso")));
+		cc.setIdCorso(corsoId);
 		try {
-			AdminFacade.getInstance().createCorsista(corsista);
-			long idCorsista = corsista.getIdCorsista();
-			cc.setIdCorsista(idCorsista);
-			AdminFacade.getInstance().createCorsoCorsista(cc);
-			
-			response.sendRedirect("listacorsi.jsp");
+			int iscritti = AdminFacade.getInstance().getCorsoCorsistaByCorsoId(corsoId).length;
+			if(iscritti < 12) {
+				AdminFacade.getInstance().createCorsista(corsista);
+				long idCorsista = corsista.getIdCorsista();
+				cc.setIdCorsista(idCorsista);
+				AdminFacade.getInstance().createCorsoCorsista(cc);
+				response.sendRedirect("listacorsi.jsp");
+			} else {
+				response.sendRedirect("corsopieno.jsp");
+			}
 		} catch (ClassNotFoundException | SQLException | IOException e) {
 			e.printStackTrace();
 			throw new ServletException(e.getMessage());

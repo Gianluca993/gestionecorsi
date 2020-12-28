@@ -12,10 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import it.betacom.business.AdminFacade;
 import it.betacom.business.model.Corsista;
 import it.betacom.business.model.CorsoCorsista;
+import it.betacom.business.util.CheckCorsi;
 
-/**
- * Servlet implementation class AggiungiCorsista
- */
 @WebServlet("/modificacorsista")
 public class ModificaCorsista extends HttpServlet {
 	private static final long serialVersionUID = -1732386572633584297L;
@@ -33,9 +31,10 @@ public class ModificaCorsista extends HttpServlet {
 		corsista.setCognomeCorsista(cognome);
 		corsista.setPrecFormativi(prec);
 		try {
+			CorsoCorsista[] corsiCorsisti = AdminFacade.getInstance().getCorsoCorsistaByCorsistaId(id);
 			CorsoCorsista lastCorso = AdminFacade.getInstance().getLastCorsoCorsistaByCorsistaId(id);
 			AdminFacade.getInstance().updateCorsista(corsista);
-			if(lastCorso == null || lastCorso.getIdCorso() != corsoId) {
+			if(CheckCorsi.checkCorsi(corsiCorsisti, corsoId)) {
 				CorsoCorsista newCorso = new CorsoCorsista();
 				newCorso.setIdCorso(corsoId);
 				newCorso.setIdCorsista(id);

@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="it.betacom.business.model.Corso"%>
 <%@page import="it.betacom.business.AdminFacade"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -48,9 +49,12 @@
 						<%
 							Corso[] corsi = AdminFacade.getInstance().getAllCorsi();
 							for(Corso c : corsi) {
+								int iscritti = AdminFacade.getInstance().getCorsoCorsistaByCorsoId(c.getIdCorso()).length;
+								if(iscritti < 12 && c.getDataFine().after(new Date())) {
 						%>
 						<option value="<%= c.getIdCorso() %>"><%= c.getNomeCorso() %></option>
 						<%
+								}
 							}
 						%>
 					</select>

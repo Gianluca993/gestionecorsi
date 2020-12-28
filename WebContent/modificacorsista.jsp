@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="it.betacom.architecture.dao.DBAccess"%>
@@ -62,16 +63,19 @@
 						<%
 							Corso[] corsi = AdminFacade.getInstance().getAllCorsi();
 							for(Corso c : corsi) {
-								if(corsoCorsista != null) {
+								int iscritti = AdminFacade.getInstance().getCorsoCorsistaByCorsoId(c.getIdCorso()).length;
+								if(iscritti < 12 && c.getDataFine().before(new Date())) {
+									if(corsoCorsista != null) {
 						%>
 <%-- 						<%if (corsoCorsista.getIdCorso()) %> --%>
 						<option value="<%= c.getIdCorso() %>" <%= c.getIdCorso()==corsoCorsista.getIdCorso()?"selected":"" %>><%= c.getNomeCorso() %></option>
 						<%
-								} else {
+									} else {
 						
 						%>
 						<option value="<%= c.getIdCorso() %>"><%= c.getNomeCorso() %></option>
 						<%
+									}
 								}
 							}
 						%>
