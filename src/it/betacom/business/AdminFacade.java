@@ -104,7 +104,7 @@ public class AdminFacade {
 		return statsBC.getDataUltimoCorso();
 	}
 	
-	public double getDurataMediaCorsi() throws SQLException {
+	public int getDurataMediaCorsi() throws SQLException {
 		return statsBC.getDurataMediaCorsi();
 	}
 	

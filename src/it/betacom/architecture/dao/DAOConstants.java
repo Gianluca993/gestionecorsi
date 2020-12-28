@@ -24,6 +24,7 @@ public interface DAOConstants {
 	
 	//SELECT
 	String CORSISTA="select * from corsisti where id_corsista=?";
+	String CORSISTA_BYCORSI="select * from corsisti where id_corsista = ? and (select max(data_fine) from corsi, s";
 	String DOCENTE="select * from docenti where id_docente=?";
 	String CORSO="select * from corsi where id_corso=?";
 	String ADMIN="select * from admin where id_admin=?";

@@ -144,7 +144,7 @@ if (stat == null) {
 		</div>
 		<%
 			} else if (stat.equals("durco")) {
-		double durata = AdminFacade.getInstance().getDurataMediaCorsi();
+		int durata = AdminFacade.getInstance().getDurataMediaCorsi();
 		%>
 		<div class=col-md-12>
 			<table class="table table-striped">
@@ -156,7 +156,7 @@ if (stat == null) {
 				<tbody>
 
 					<tr>
-						<td><%=durata%>h</td>
+						<td><%=durata%> Giorni</td>
 					</tr>
 				</tbody>
 			</table>

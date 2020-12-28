@@ -28,7 +28,7 @@ public class StatsBC {
 		return CorsoDAO.getFactory().getDataUltimoCorso(conn);
 	}
 	
-	public double getDurataMediaCorsi() throws SQLException {
+	public int getDurataMediaCorsi() throws SQLException {
 		return CorsoDAO.getFactory().getDurataMediaCorsi(conn);
 	}
 	

@@ -141,12 +141,12 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants{
 		return c;
 	}
 	
-	public double getDurataMediaCorsi(Connection conn) throws SQLException {
+	public int getDurataMediaCorsi(Connection conn) throws SQLException {
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(DURATA_MEDIA);
-		double durata = 0;
+		int durata = 0;
 		if(rs.next())
-			durata = rs.getDouble(1);
+			durata = (int) Math.round(rs.getDouble(1)/8);
 		return durata;
 	}
 	
