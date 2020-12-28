@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="it.betacom.business.model.Docente"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="it.betacom.business.model.Corso"%>
@@ -41,9 +42,15 @@
   <% 
   for(Corsista c : corsisti){ 
   	CorsoCorsista[] corsiCorsisti = AdminFacade.getInstance().getCorsoCorsistaByCorsistaId(c.getIdCorsista());
+  	boolean attivo = false;
   	if(corsiCorsisti != null) {
-
+  	for(CorsoCorsista cc1 : corsiCorsisti) {
+  		if(AdminFacade.getInstance().getCorsoById(cc1.getIdCorso()).getDataFine().after(new Date())) {
+  			attivo = true;
+  		}
+  	}
   	
+  	if(attivo) {
   	
   %>
     <tr data-toggle="modal" data-target="#modal<%= c.getIdCorsista()  %>">
@@ -118,6 +125,7 @@
     </tr>
     
     <%
+  		}
      }
   	} 
   	%>
