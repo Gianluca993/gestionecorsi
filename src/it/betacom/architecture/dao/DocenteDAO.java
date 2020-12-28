@@ -12,6 +12,7 @@ import java.sql.Statement;
 
 import it.betacom.architecture.dao.adapter.AdapterDocenteDAO;
 import it.betacom.business.model.Docente;
+import it.betacom.business.util.CVReader;
 
 public class DocenteDAO extends AdapterDocenteDAO{
 
@@ -58,30 +59,6 @@ public class DocenteDAO extends AdapterDocenteDAO{
 	}
 	
 	public Docente getDocenteByCorsi (Connection conn) throws SQLException, IOException {
-		int counterDoc = 0;
-		int counter = 0;
-		Docente doc = null;
-		Docente[] docenti = this.getAll(conn);
-		FileReader fr;
-		BufferedReader br;
-		for(Docente d: docenti) {
-			File file = new File(d.getCvDocente());
-			if(file.exists()) {
-			fr=new FileReader(file);
-			br=new BufferedReader(fr);
-			String riga;
-			counter = 0;
-			while((riga=br.readLine())!=null) {  
-				counter++;
-				}
-			if(counter > counterDoc) {
-				counterDoc = counter;
-				doc = d;
-			}
-			br.close();
-			fr.close();
-			}
-		}
-		return doc;
+		return CVReader.countCV(getAll(conn));
 	}
 }
