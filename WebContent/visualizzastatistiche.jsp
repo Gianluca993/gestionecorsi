@@ -32,7 +32,7 @@ if (stat == null) {
 			<form method="get" action="#">
 				<select class="form-control" name="stat" id="orderby"
 					onchange="this.form.submit()">
-					<option value="numcor" <%=stat.equals("popcor") ? "selected" : ""%>>Corso
+					<option value="popcor" <%=stat.equals("popcor") ? "selected" : ""%>>Corso
 						più popolare</option>
 					<option value="numcor" <%=stat.equals("numcor") ? "selected" : ""%>>Numero
 						totale dicorsisti</option>

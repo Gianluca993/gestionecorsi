@@ -5,6 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
@@ -151,18 +154,19 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants{
 	}
 	
 	public Corso[] getCorsiDisponibili(Connection conn) throws SQLException {
-		Corso[] corsi = null;
+		List<Corso> corsi = new ArrayList<>();
 		Statement stmt = conn.createStatement(
 				ResultSet.TYPE_SCROLL_INSENSITIVE,
 				ResultSet.CONCUR_READ_ONLY);
 		ResultSet rs = stmt.executeQuery(CORSI_POSTI_LIBERI);
-		rs.last();
-		corsi = new Corso[rs.getRow()];		
+		rs.last();	
 		rs.beforeFirst();
 		for(int i = 0; rs.next(); i++) {
 			Corso c = getById(conn, rs.getLong(1));
-			corsi[i] = c;
+			if(c.getDataFine().after(new Date()))
+				corsi.add(c);
 		}
-		return corsi;
+		Corso[] arrCorsi = new Corso[corsi.size()];
+		return corsi.toArray(arrCorsi);
 	}
 }
