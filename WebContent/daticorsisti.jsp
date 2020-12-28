@@ -45,7 +45,7 @@
   	boolean attivo = false;
   	if(corsiCorsisti != null) {
   	for(CorsoCorsista cc1 : corsiCorsisti) {
-  		if(AdminFacade.getInstance().getCorsoById(cc1.getIdCorso()).getDataFine().before(new Date())) {
+  		if(AdminFacade.getInstance().getCorsoById(cc1.getIdCorso()).getDataFine().after(new Date())) {
   			attivo = true;
   		}
   	}
