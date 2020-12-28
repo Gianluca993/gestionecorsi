@@ -44,7 +44,7 @@ public class Login extends HttpServlet {
 				}
 			}
 		} else {
-			response.sendRedirect("accessonegato.jsp");
+			response.sendRedirect("loginfailed.jsp");
 		}
 	}
 
