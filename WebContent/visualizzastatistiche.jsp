@@ -9,15 +9,13 @@
 	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 	String stat = request.getParameter("stat");
 	if(stat == null) {
-		stat = "numcor";
+		stat = "popcor";
 	}
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<jsp:useBean id="carrello" class="it.betacom.business.controller.Login"
-	scope="session" />
 <link rel="stylesheet" href="css/style.css">
 <%@include file="CDN.html"%>
 <title>Dati Corsisti</title>
@@ -31,20 +29,13 @@
 			<form method="get" action="#">
 				<select class="form-control" name="stat" id="orderby"
 					onchange="this.form.submit()">
-					<option value="numcor"
-						<%=stat.equals("numcor") ? "selected" : ""%>>Numero totale di
-						corsisti</option>
-					<option value="datin" <%=stat.equals("datin") ? "selected" : ""%>>Data di
-						inizio dell'ultimo corso</option>
-					<option value="durco" <%=stat.equals("durco") ? "selected" : ""%>>Durata
-						media dei corsi</option>
-					<option value="numcom"
-						<%=stat.equals("numcom") ? "selected" : ""%>>Numero
-						di commenti presenti</option>
+					<option value="numcor" <%=stat.equals("popcor") ? "selected" : ""%>>Corso più popolare</option>
+					<option value="numcor" <%=stat.equals("numcor") ? "selected" : ""%>>Numero totale dicorsisti</option>
+					<option value="datin" <%=stat.equals("datin") ? "selected" : ""%>>Data di inizio dell'ultimo corso</option>
+					<option value="durco" <%=stat.equals("durco") ? "selected" : ""%>>Durata media dei corsi</option>
+					<option value="numcom" <%=stat.equals("numcom") ? "selected" : ""%>>Numero di commenti presenti</option>
 					<option value="docen" <%=stat.equals("docen") ? "selected" : ""%>>Docente che può tenere più corsi</option>
-					<option value="dispcor"
-						<%=stat.equals("dispcor") ? "selected" : ""%>>Corsi
-						con posti disponibili</option>
+					<option value="dispcor" <%=stat.equals("dispcor") ? "selected" : ""%>>Corsi con posti disponibili</option>
 				</select>
 
 			</form>
@@ -54,7 +45,39 @@
 	<div class="container mt-4">
 
 		<%
-			if (stat.equals("numcor")) {
+			if (stat.equals("popcor")) {
+				Corso c = AdminFacade.getInstance().getCorsoPiuFreq();
+		%>
+		
+		<div class=col-md-12>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Nome Corso</th>
+						<th scope="col">Inizio Corso</th>
+						<th scope="col">Fine Corso</th>
+						<th scope="col">Costo Corso</th>
+						<th scope="col">Commenti Corso</th>
+						<th scope="col">Aula Corso</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr>
+						<td><%=c.getNomeCorso()%></td>
+						<td><%=formato.format(c.getDataInizio())%></td>
+						<td><%=formato.format(c.getDataFine())%></td>
+						<td><%=c.getCosto()%>&euro;</td>
+						<td><%=c.getCommentiCorso()%></td>
+						<td><%=c.getAulaCorso()%></td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+		
+		<%
+			} else if (stat.equals("numcor")) {
 				int numeroCors = AdminFacade.getInstance().getAllCorsisti().length;
 		%>
 

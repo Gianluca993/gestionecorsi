@@ -12,7 +12,7 @@ public interface DAOConstants {
 	String DURATA_MEDIA="select avg(((data_fine-data_inizio)-((data_fine-data_inizio)/7*2))) from corsi";
 	String ALL_CV="select cv_docente from docenti";
 	String CV_DOCENTE="select cv_docente from docenti where id_docente=?";
-	String CORSO_MAXFREQ="select * from (select id_corso ,count(id_corsista) as conteggio from corsi_corsisti, corsi where corsi_corsisti.id_corso=corsi.id_corso group by id_corso order by conteggio desc) where rownum <=1";
+	String CORSO_MAXFREQ="select * from (select corsi_corsisti.id_corso, count(corsi_corsisti.id_corsista) as conteggio from corsi_corsisti, corsi where corsi_corsisti.id_corso=corsi.id_corso group by corsi_corsisti.id_corso order by conteggio desc) where rownum <=1";
 	
 	String CORSI_POSTI_LIBERI="select corsi_corsisti.id_corso ,count(id_corsista) as conteggio from corsi_corsisti, corsi where corsi_corsisti.id_corso=corsi.id_corso  group by corsi.id_corso having count(id_corsista) < 12";
 	
