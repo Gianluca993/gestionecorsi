@@ -146,7 +146,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants{
 		ResultSet rs = stmt.executeQuery(DURATA_MEDIA);
 		int durata = 0;
 		if(rs.next())
-			durata = (int) Math.round(rs.getDouble(1)/8);
+			durata = (int) Math.round(rs.getDouble(1));
 		return durata;
 	}
 	
