@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<meta http-equiv="Refresh" content="5;url=index.jsp">
+		<meta http-equiv="Refresh" content="300;url=index.jsp">
 		<link rel="stylesheet" href="css/style.css">
 		<%@include file="CDN.html" %>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,8 @@
 					<h5 style="color:white;">Hai superato i numero di tentativi</h5>
 				</div>
 				<div class="panel-body">
-					<p style="color:white;">Verrai reindirizzato automaticamente alla pagina per tentare nuovamente il login</p>
+					<p style="color:white;">Potrai tentare il login fra 5 minuti</p>
+					<p style="color:white;">Verrai reindirizzato automaticamente</p>
 				</div>
 			</div>
 		</div>

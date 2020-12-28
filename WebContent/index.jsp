@@ -18,25 +18,40 @@
 
 
 <div class="container d-flex justify-content-center ">
+	
 
-<div class="col-md-4 mt-3">
-<form action="/<%=application.getServletContextName()%>/login"
-			class="form-horizontal" method="post" id="adminForm">
-  <div class="form-group">
-    <label for="id_admin" class="lognom">Id Admin</label>
-    <input type="text" class="form-control" id="adaccess" name="id" placeholder="Enter Id" required>
-  </div>
- 
- 
-   <div class="form-group">
-    <label for="cognome_admin" class="lognom">Cognome Admin</label>
-    <input type="text" class="form-control" id="cogadmin" name="cognome" placeholder="Enter Cognome" required>
-  </div>
- 
- <button type="submit" class="btn btn-primary">Entra</button>
-</form>
-
-</div>
+	<div class="col-md-4 mt-3">
+	
+			<%
+				if(session.getAttribute("errore") != null) {
+			%>
+			<div class="alert alert-danger" role="alert">
+				 Login errato
+			</div>
+	
+			<%
+				}
+			%>
+	
+	
+	
+		<form action="/<%=application.getServletContextName()%>/login"
+					class="form-horizontal" method="post" id="adminForm">
+		  <div class="form-group">
+		    <label for="id_admin" class="lognom">Id Admin</label>
+		    <input type="text" class="form-control" id="adaccess" name="id" placeholder="Enter Id" required>
+		  </div>
+		 
+		 
+		   <div class="form-group">
+		    <label for="cognome_admin" class="lognom">Cognome Admin</label>
+		    <input type="text" class="form-control" id="cogadmin" name="cognome" placeholder="Enter Cognome" required>
+		  </div>
+		 
+		 <button type="submit" class="btn btn-primary">Entra</button>
+		</form>
+	
+	</div>
 
 
 

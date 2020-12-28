@@ -21,6 +21,7 @@ public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		session.removeAttribute("errore");
 		new CountLogin(request);
 		ServletContext context = request.getServletContext();
 		LoginData lD = (LoginData) context.getAttribute(request.getRemoteAddr());
@@ -36,6 +37,7 @@ public class Login extends HttpServlet {
 						context.removeAttribute(request.getRemoteAddr());
 						response.sendRedirect("daticorsisti.jsp");
 					} else {
+						session.setAttribute("errore", "errore");
 						response.sendRedirect("index.jsp");
 					}
 				} catch (ClassNotFoundException | SQLException | IOException e) {
